@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
+  <!-- YC-style: one letter, flat fill, high contrast on a rounded square -->
+  <rect width="64" height="64" rx="14" fill="#2563eb"/>
+  <path fill="#ffffff" d="M17 15h14v22h16v12H17V15z"/>
+</svg>

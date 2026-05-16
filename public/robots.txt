@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# AI / LLM crawlers: site is open for indexing unless you add Disallow rules later.
+# Optional site summary for assistants (many tools also crawl HTML + schema.org JSON-LD):
+# https://longstake.ca/llms.txt
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://longstake.ca/sitemap.xml

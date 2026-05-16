@@ -1,0 +1,70 @@
+.company-policy {
+  background-color: var(--white);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.company-policy.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.policy-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.policy-card {
+  background-color: var(--light-gray);
+  border-radius: 12px;
+  padding: 2.5rem;
+  border: 1px solid var(--border-gray);
+  transition: all 0.3s ease;
+}
+
+.policy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-blue);
+}
+
+.policy-card.highlight {
+  background-color: var(--white);
+  border: 2px solid var(--primary-blue);
+}
+
+.policy-icon {
+  margin-bottom: 1.5rem;
+  color: var(--primary-blue);
+}
+
+.policy-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.policy-description {
+  color: var(--text-light);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .policy-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .policy-card {
+    padding: 2rem;
+  }
+
+  .policy-title {
+    font-size: 1.25rem;
+  }
+}

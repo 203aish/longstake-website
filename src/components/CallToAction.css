@@ -1,0 +1,39 @@
+.cta {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.cta.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-headline {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .cta-headline {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-headline {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+}

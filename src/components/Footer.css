@@ -1,0 +1,160 @@
+/* Light, neutral footer — readable contact colors, Company block like reference layout */
+
+:root {
+  --footer-gradient-start: #f1f5f9;
+  --footer-gradient-end: #e8eef4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --footer-gradient-start: #1e293b;
+    --footer-gradient-end: #0f172a;
+    --footer-grid-border: rgba(241, 245, 249, 0.1);
+  }
+}
+
+.footer-site {
+  background: linear-gradient(180deg, var(--footer-gradient-start) 0%, var(--footer-gradient-end) 100%);
+  border-top: 1px solid var(--border-gray);
+  color: var(--text-dark);
+  padding: 2.75rem 0 1.75rem;
+}
+
+.footer-site-grid {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(260px, 1.35fr);
+  gap: 2.5rem 3.5rem;
+  align-items: start;
+  max-width: 880px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--footer-grid-border, rgba(30, 41, 59, 0.08));
+}
+
+.footer-site-heading {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.footer-site-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer-site-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-site-link:hover,
+.footer-site-link:focus-visible {
+  color: var(--primary-blue);
+}
+
+.footer-site-col--company {
+  text-align: left;
+}
+
+#site-contact {
+  scroll-margin-top: 5.5rem;
+}
+
+.footer-site-col--contact {
+  text-align: left;
+}
+
+.footer-site-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.footer-site-contact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-site-contact-row--stack {
+  gap: 0.45rem;
+}
+
+.footer-site-meta {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  opacity: 0.95;
+}
+
+.footer-site-contact-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.footer-site-contact-link:hover,
+.footer-site-contact-link:focus-visible {
+  color: var(--primary-blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-site-email-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-site-copy {
+  text-align: center;
+  margin: 1.5rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 640px) {
+  .footer-site {
+    padding: 2.25rem 0 1.5rem;
+  }
+
+  .footer-site-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .footer-site-col--company,
+  .footer-site-col--contact {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-site-heading {
+    font-size: 1.05rem;
+  }
+
+  .footer-site-contact-link {
+    font-size: 0.9rem;
+    word-break: break-word;
+    max-width: 100%;
+  }
+}

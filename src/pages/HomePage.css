@@ -1,0 +1,192 @@
+.home-page {
+  padding-top: 0;
+}
+
+.home-hero {
+  background: linear-gradient(180deg, var(--light-gray) 0%, var(--white) 100%);
+}
+
+/* Clear fixed header + gap; full padding shorthand overrides global `.section` */
+.home-hero.section {
+  padding: clamp(7rem, 5.5rem + 3vw, 9rem) 0 4.5rem 0;
+}
+
+.home-hero-title {
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  max-width: 900px;
+  margin-bottom: 1.25rem;
+}
+
+.home-hero-lead {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--text-light);
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.home-link-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.home-section {
+  padding: 4.5rem 0;
+}
+
+.home-section--alt {
+  background: var(--accent-gray);
+}
+
+.home-narrow {
+  max-width: 760px;
+}
+
+.home-section-title {
+  font-size: clamp(1.75rem, 3vw, 2.125rem);
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 1.25rem;
+}
+
+.home-section-intro {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: -0.5rem 0 2rem;
+}
+
+.home-prose p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: 1.25rem;
+}
+
+.home-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.home-achievement-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.home-achievement-card {
+  background: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.home-achievement-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 0.75rem;
+}
+
+.home-achievement-card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.home-practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.home-practice-card {
+  background: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.home-practice-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.home-practice-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+.home-practice-card p:last-of-type {
+  flex: 1;
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+.home-practice-link {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.home-practice-link:hover {
+  text-decoration: underline;
+}
+
+[data-home-animate] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-home-animate].home-fade-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .home-hero.section {
+    padding: clamp(6.5rem, 5rem + 6vw, 8rem) 0 3.5rem 0;
+  }
+
+  .home-section {
+    padding: 3.5rem 0;
+  }
+
+  .home-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-link-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,87 @@
+.stakenex-capabilities {
+  background: var(--accent-gray);
+}
+
+.stakenex-capabilities .section-title {
+  max-width: none;
+}
+
+.snx-cap-head {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+}
+
+.snx-cap-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary-blue);
+  margin: 0 0 0.75rem;
+}
+
+.snx-cap-title {
+  margin-bottom: 0.75rem;
+}
+
+.snx-cap-subtitle {
+  margin-bottom: 0;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.snx-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.snx-pillar {
+  background: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: 14px;
+  padding: 1.6rem 1.75rem;
+  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.04);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.snx-pillar:hover {
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+}
+
+.snx-pillar-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+}
+
+.snx-pillar-body {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .snx-pillars {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .snx-pillar {
+    padding: 1.35rem 1.4rem;
+  }
+
+  .snx-cap-head {
+    margin-bottom: 2.25rem;
+  }
+}
