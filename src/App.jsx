@@ -23,11 +23,17 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/stakenex" element={<StakenexPage />} />
+            <Route path="/stakenex/" element={<StakenexPage />} />
             <Route path="/stakeflow" element={<StakeflowPage />} />
+            <Route path="/stakeflow/" element={<StakeflowPage />} />
             <Route path="/careers" element={<CareersPage />} />
+            <Route path="/careers/" element={<CareersPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/privacy-policy/" element={<PrivacyPolicyPage />} />
             <Route path="/contact" element={<Navigate to="/#site-contact" replace />} />
+            <Route path="/contact/" element={<Navigate to="/#site-contact" replace />} />
             <Route path="/company-policy" element={<CompanyPolicyPage />} />
+            <Route path="/company-policy/" element={<CompanyPolicyPage />} />
           </Routes>
         </main>
         <Footer />
