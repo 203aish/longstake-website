@@ -7,7 +7,6 @@ import HowItWorks from '../components/HowItWorks'
 import StakenexCapabilities from '../components/StakenexCapabilities'
 import WhyLongstake from '../components/WhyLongstake'
 import FAQ from '../components/FAQ'
-import CallToAction from '../components/CallToAction'
 
 const StakenexPage = () => {
   const location = useLocation()
@@ -31,7 +30,6 @@ const StakenexPage = () => {
       <StakenexCapabilities />
       <WhyLongstake />
       <FAQ />
-      <CallToAction />
     </>
   )
 }

@@ -1,224 +1,192 @@
 .stakeflow-page {
-  --sf-bg: #0b1220;
-  --sf-surface: #111827;
-  --sf-border: rgba(148, 163, 184, 0.15);
-  --sf-text: #e2e8f0;
-  --sf-muted: #94a3b8;
-  --sf-accent: #38bdf8;
-  --sf-accent-dim: rgba(56, 189, 248, 0.12);
-  --sf-glow: rgba(56, 189, 248, 0.25);
-  --sf-radius: 12px;
-  --sf-radius-sm: 10px;
+  --sf-radius: 16px;
+  --sf-radius-sm: 12px;
 }
 
-/* —— Hero —— */
+/* ── Hero ── */
 .sf-hero {
   position: relative;
-  min-height: 78vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(165deg, #0b1220 0%, #0f172a 42%, #0c1426 100%);
-  color: var(--sf-text);
+  padding: clamp(56px, 9vw, 110px) 0;
   overflow: hidden;
-  padding: 6.5rem 0 5rem;
+  background-color: var(--page);
+  background-image: radial-gradient(var(--hair) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  color: var(--ink);
 }
 
 .sf-hero::before {
   content: '';
   position: absolute;
-  inset: -20% -10% auto 40%;
-  height: min(70vh, 520px);
-  background: radial-gradient(ellipse 80% 70% at 50% 50%, var(--sf-glow) 0%, transparent 72%);
-  opacity: 0.45;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.08), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
 .sf-hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--sf-border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--sf-border) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse 85% 75% at 50% 18%, black 15%, transparent 70%);
-  opacity: 0.45;
-  pointer-events: none;
+  display: none;
 }
 
 .sf-hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 860px;
 }
 
 .sf-eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sf-accent);
-  margin-bottom: 1rem;
-  opacity: 0.95;
+  color: var(--blue);
+  margin-bottom: 20px;
+  display: block;
 }
 
 .sf-hero-title {
-  font-size: clamp(2rem, 5vw, 3.35rem);
+  font-size: clamp(36px, 6vw, 68px);
   font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.35rem;
-  color: #f8fafc;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  margin-bottom: 24px;
+  color: var(--ink);
   text-wrap: balance;
 }
 
 .sf-hero-title-em {
-  background: linear-gradient(105deg, #f1f5f9 0%, #bae6fd 40%, #38bdf8 72%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue);
 }
 
 .sf-hero-lead {
-  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
-  line-height: 1.7;
-  color: var(--sf-muted);
-  max-width: 38rem;
-  border-left: 3px solid rgba(56, 189, 248, 0.45);
-  padding-left: 1.25rem;
-  margin-left: 0.125rem;
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.55;
+  color: var(--body);
+  max-width: 540px;
+  border-left: 3px solid rgba(37, 99, 235, 0.3);
+  padding-left: 20px;
+  margin-left: 2px;
 }
 
-/* —— Sections —— */
+/* ── Sections ── */
 .sf-section {
-  padding: 5.25rem 0;
-  background: var(--sf-bg);
-  color: var(--sf-text);
-  position: relative;
+  padding: clamp(64px, 9vw, 112px) 0;
+  background: var(--page);
+  color: var(--ink);
 }
 
 .sf-section-alt {
-  background: var(--sf-surface);
-  box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.08);
+  background: var(--soft);
+  box-shadow: inset 0 1px 0 var(--hair);
 }
 
 .sf-section-head {
-  max-width: 44rem;
+  max-width: 680px;
   margin-bottom: 2.75rem;
 }
 
 .sf-section-eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sf-accent);
-  margin: 0 0 0.65rem;
-  opacity: 0.9;
+  color: var(--blue);
+  margin: 0 0 14px;
+  display: block;
 }
 
 .sf-section-title {
-  font-size: clamp(1.625rem, 3vw, 2.125rem);
+  font-size: clamp(28px, 4vw, 40px);
   font-weight: 700;
-  color: var(--sf-text);
-  margin: 0 0 0.85rem;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 14px;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   text-wrap: balance;
 }
 
 .sf-section-intro {
-  color: var(--sf-muted);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.55;
   margin: 0;
-  max-width: 40rem;
+  max-width: 540px;
 }
 
-/* —— Capability pillars (aligned with Stakenex editorial cards) —— */
+/* ── Cards ── */
 .sf-pillar-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 16px;
 }
 
 .sf-pillar {
   margin: 0;
-  padding: 1.35rem 1.5rem;
+  padding: 36px 32px 32px;
   border-radius: var(--sf-radius);
-  border: 1px solid var(--sf-border);
-  background: linear-gradient(165deg, rgba(21, 31, 50, 0.92) 0%, rgba(15, 23, 42, 0.75) 100%);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
-  transition:
-    border-color 0.22s ease,
-    background 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.22s ease;
+  border: 1px solid var(--hair);
+  background: var(--paper);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .sf-pillar:hover {
-  border-color: rgba(56, 189, 248, 0.4);
-  background: linear-gradient(165deg, rgba(30, 58, 88, 0.35) 0%, rgba(15, 23, 42, 0.85) 100%);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.28),
-    0 0 0 1px rgba(56, 189, 248, 0.08);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
   transform: translateY(-2px);
 }
 
 .sf-pillar-title {
-  margin: 0 0 0.65rem;
-  font-size: 1.0625rem;
+  margin: 0 0 10px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.3;
-  color: #f1f7fe;
+  color: var(--ink);
 }
 
 .sf-pillar-body {
   margin: 0;
-  font-size: 0.96875rem;
-  line-height: 1.65;
-  color: #cbd5e1;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--body);
 }
 
-/* —— Scenario cards —— */
 .sf-scenario-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 16px;
 }
 
 .sf-scenario {
   margin: 0;
-  padding: 1.35rem 1.5rem;
+  padding: 36px 32px 32px;
   border-radius: var(--sf-radius);
-  border: 1px solid var(--sf-border);
-  background: rgba(15, 23, 42, 0.45);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
+  border: 1px solid var(--hair);
+  background: var(--paper);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sf-scenario:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  background: rgba(56, 189, 248, 0.06);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
 }
 
 .sf-scenario-title {
-  margin: 0 0 0.6rem;
-  font-size: 1.03125rem;
+  margin: 0 0 10px;
+  font-size: 17px;
   font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.35;
-  color: #e2e8f0;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--ink);
 }
 
 .sf-scenario-body {
   margin: 0;
-  font-size: 0.96875rem;
-  line-height: 1.65;
-  color: #94a3b8;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--body);
 }
 
 /* Entrance animation */
@@ -243,7 +211,7 @@
   }
 
   .sf-pillar {
-    transition: border-color 0.15s ease, background 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
   .sf-pillar:hover {
@@ -253,17 +221,18 @@
 
 @media (max-width: 768px) {
   .sf-hero {
-    min-height: auto;
-    padding: 5.25rem 0 3.25rem;
+    padding: clamp(40px, 7vw, 64px) 0;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .sf-hero-lead {
-    padding-left: 1rem;
+    padding-left: 14px;
     border-left-width: 2px;
   }
 
   .sf-section {
-    padding: 3.5rem 0;
+    padding: clamp(48px, 7vw, 80px) 0;
   }
 
   .sf-section-head {
@@ -273,12 +242,12 @@
   .sf-pillar-grid,
   .sf-scenario-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 12px;
   }
 
   .sf-pillar,
   .sf-scenario {
-    padding: 1.125rem 1.2rem;
+    padding: 28px 24px 24px;
   }
 
   .sf-pillar:hover {

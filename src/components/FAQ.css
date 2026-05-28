@@ -1,5 +1,24 @@
+section.faq.section {
+  padding-top: clamp(64px, 9vw, 112px);
+  padding-bottom: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  section.faq.section {
+    padding-top: clamp(48px, 7vw, 80px);
+    padding-bottom: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section.faq.section {
+    padding-top: clamp(40px, 6vw, 60px);
+    padding-bottom: 1.5rem;
+  }
+}
+
 .faq {
-  background-color: var(--light-gray);
+  background: var(--page);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -12,24 +31,24 @@
 
 .faq-content {
   max-width: 800px;
-  margin: 3rem auto 0;
+  margin: 2.25rem auto 0;
 }
 
 .faq-item {
-  background-color: var(--white);
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  border: 1px solid var(--border-gray);
+  background: var(--paper);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border: 1px solid var(--hair);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .faq-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .faq-item.open {
-  border-color: var(--primary-blue);
+  border-color: rgba(37, 99, 235, 0.4);
 }
 
 .faq-question {
@@ -42,19 +61,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.15s;
 }
 
 .faq-question:hover {
-  background-color: var(--light-gray);
+  background: var(--soft);
 }
 
 .faq-question-text {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--ink);
   flex: 1;
   padding-right: 1rem;
+  letter-spacing: -0.01em;
 }
 
 .faq-icon {
@@ -64,11 +84,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .faq-icon svg {
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
+  color: var(--blue);
 }
 
 .faq-item.open .faq-icon svg path:first-child {
@@ -92,9 +113,9 @@
 }
 
 .faq-answer p {
-  color: var(--text-light);
-  line-height: 1.8;
-  font-size: 1rem;
+  color: var(--body);
+  line-height: 1.7;
+  font-size: 0.9875rem;
   margin: 0;
 }
 

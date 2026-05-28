@@ -1,5 +1,5 @@
 .stakenex-capabilities {
-  background: var(--accent-gray);
+  background: var(--soft);
 }
 
 .stakenex-capabilities .section-title {
@@ -13,16 +13,15 @@
 }
 
 .snx-cap-eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--primary-blue);
-  margin: 0 0 0.75rem;
+  color: var(--blue);
+  margin: 0 0 14px;
 }
 
 .snx-cap-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: 12px;
 }
 
 .snx-cap-subtitle {
@@ -30,55 +29,59 @@
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
+  font-size: 17px;
+  color: var(--body);
+  line-height: 1.55;
 }
 
 .snx-pillars {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem 1.5rem;
+  gap: 16px;
   max-width: 960px;
   margin: 0 auto;
 }
 
 .snx-pillar {
-  background: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: 14px;
-  padding: 1.6rem 1.75rem;
-  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.04);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  padding: 36px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .snx-pillar:hover {
-  border-color: rgba(37, 99, 235, 0.25);
+  border-color: rgba(37, 99, 235, 0.35);
   box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+  transform: translateY(-2px);
 }
 
 .snx-pillar-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin: 0 0 0.65rem;
-  letter-spacing: -0.02em;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
 }
 
 .snx-pillar-body {
   margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: var(--text-light);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--body);
+  flex: 1;
 }
 
 @media (max-width: 768px) {
   .snx-pillars {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 12px;
   }
 
   .snx-pillar {
-    padding: 1.35rem 1.4rem;
+    padding: 28px 24px 24px;
   }
 
   .snx-cap-head {

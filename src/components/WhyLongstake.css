@@ -1,5 +1,5 @@
 .why-longstake {
-  background-color: var(--white);
+  background: var(--page);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -12,73 +12,84 @@
 
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin-top: 3rem;
 }
 
 .benefit-card {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  background-color: var(--light-gray);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  padding: 36px 32px 32px;
+  background: var(--paper);
+  border-radius: 16px;
+  border: 1px solid var(--hair);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .benefit-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -16px rgba(37, 99, 235, 0.2);
 }
 
 .benefit-icon {
-  margin-bottom: 1.5rem;
-  color: var(--primary-blue);
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
+  background: var(--soft);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(37, 99, 235, 0.1);
-  border-radius: 12px;
+  color: var(--blue);
+  margin-bottom: 24px;
   flex-shrink: 0;
 }
 
 .benefit-title {
-  font-size: 1.375rem;
+  font-size: 19px;
   font-weight: 600;
-  color: var(--primary-blue);
-  margin-bottom: 1rem;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
 }
 
 .benefit-description {
-  color: var(--text-light);
-  line-height: 1.7;
-  font-size: 1rem;
+  color: var(--body);
+  line-height: 1.55;
+  font-size: 14.5px;
+  flex: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 640px) {
   .benefits-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 12px;
   }
 
   .benefit-card {
-    padding: 1.5rem;
+    padding: 28px 24px 24px;
   }
 
   .benefit-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1.25rem;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 18px;
   }
 
   .benefit-icon svg {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
   }
 
   .benefit-title {
-    font-size: 1.25rem;
+    font-size: 17px;
   }
 }

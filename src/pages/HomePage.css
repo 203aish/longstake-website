@@ -2,169 +2,334 @@
   padding-top: 0;
 }
 
+/* ── Hero ── */
 .home-hero {
-  background: linear-gradient(180deg, var(--light-gray) 0%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+  /* Subtle dot-grid gives a "designed" feel */
+  background-color: var(--page);
+  background-image: radial-gradient(var(--hair) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  /* Fade dots out toward the bottom */
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
 }
 
-/* Clear fixed header + gap; full padding shorthand overrides global `.section` */
+/* Blue glow top-right */
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 50%;
+  height: 90%;
+  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.09), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .home-hero.section {
-  padding: clamp(7rem, 5.5rem + 3vw, 9rem) 0 4.5rem 0;
+  padding: clamp(72px, 11vw, 130px) 0 clamp(56px, 8vw, 96px);
+}
+
+.home-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Kicker above the headline */
+.home-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: var(--soft);
+  border-radius: 999px;
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  color: var(--body);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 24px;
+}
+
+.home-hero-kicker::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
 }
 
 .home-hero-title {
-  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-size: clamp(36px, 5.5vw, 66px);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text-dark);
-  max-width: 900px;
-  margin-bottom: 1.25rem;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  max-width: 760px;
+  margin-bottom: 20px;
 }
 
 .home-hero-lead {
-  font-size: 1.125rem;
-  line-height: 1.65;
-  color: var(--text-light);
-  max-width: 720px;
-  margin-bottom: 2rem;
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.6;
+  color: var(--body);
+  max-width: 560px;
+  margin-bottom: 32px;
 }
 
+/* ── Hero CTA buttons ── */
 .home-hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 12px;
 }
 
+/* Reset base — let btn-primary / btn-secondary handle color; only add layout */
 .home-link-btn {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  text-align: center;
 }
 
+/* Define btn-large so it applies visually */
+.btn-large {
+  padding: 13px 26px !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+}
+
+/* Ensure secondary button border is clearly visible */
+.btn-secondary.home-link-btn {
+  border: 1.5px solid color-mix(in srgb, var(--body) 45%, transparent);
+  background: color-mix(in srgb, var(--paper) 88%, var(--page));
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.btn-secondary.home-link-btn:hover {
+  border-color: var(--ink);
+  background: var(--paper);
+}
+
+/* ── Interior sections ── */
 .home-section {
-  padding: 4.5rem 0;
+  padding: clamp(48px, 6vw, 80px) 0;
 }
 
 .home-section--alt {
-  background: var(--accent-gray);
+  background: var(--soft);
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
 }
 
 .home-narrow {
   max-width: 760px;
 }
 
+.home-section-kicker {
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+  display: block;
+  margin-bottom: 12px;
+}
+
 .home-section-title {
-  font-size: clamp(1.75rem, 3vw, 2.125rem);
+  font-size: clamp(26px, 3.5vw, 38px);
   font-weight: 700;
-  color: var(--primary-blue);
-  margin-bottom: 1.25rem;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin-bottom: 12px;
 }
 
 .home-section-intro {
-  color: var(--text-light);
-  font-size: 1.05rem;
+  color: var(--body);
+  font-size: 16.5px;
   line-height: 1.6;
-  max-width: 640px;
-  margin: -0.5rem 0 2rem;
+  max-width: 580px;
+  margin: 0 0 2rem;
 }
 
 .home-prose p {
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  color: var(--text-dark);
-  margin-bottom: 1.25rem;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--body);
+  margin-bottom: 1.1rem;
+  max-width: 68ch;
 }
 
 .home-prose p:last-child {
   margin-bottom: 0;
 }
 
+/* ── Achievement cards — numbered with blue top accent ── */
 .home-achievement-grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  counter-reset: achievement;
 }
 
 .home-achievement-card {
-  background: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  border-top: 3px solid var(--blue);
+  counter-increment: achievement;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.home-achievement-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+  transform: translateY(-2px);
+}
+
+.home-achievement-card::before {
+  content: '0' counter(achievement);
+  display: block;
+  font: 600 11px/1 'JetBrains Mono', monospace;
+  color: var(--blue);
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
 }
 
 .home-achievement-card h3 {
-  font-size: 1.125rem;
+  font-size: 17px;
   font-weight: 600;
-  color: var(--primary-blue);
-  margin-bottom: 0.75rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
 }
 
 .home-achievement-card p {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--text-dark);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--body);
   margin: 0;
 }
 
+/* ── Practice cards ── */
 .home-practice-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 0;
 }
 
 .home-practice-card {
-  background: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: 12px;
-  padding: 2rem;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  padding: 36px 32px 32px;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 10px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-practice-card:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
 
 .home-practice-card h3 {
-  font-size: 1.5rem;
+  font-size: clamp(22px, 2.5vw, 28px);
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  margin-bottom: 2px;
 }
 
 .home-practice-tag {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--primary-blue);
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--blue);
   margin: 0;
 }
 
 .home-practice-card p:last-of-type {
   flex: 1;
-  margin: 0;
-  font-size: 0.98rem;
+  margin: 6px 0 0;
+  font-size: 14.5px;
   line-height: 1.6;
-  color: var(--text-dark);
+  color: var(--body);
 }
 
 .home-practice-link {
-  margin-top: 0.5rem;
-  font-weight: 600;
-  color: var(--primary-blue);
+  margin-top: 10px;
+  font: 500 13px/1 'Geist', sans-serif;
+  color: var(--blue);
   text-decoration: none;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.15s;
 }
 
 .home-practice-link:hover {
-  text-decoration: underline;
+  gap: 10px;
 }
 
+/* ── Dark "practices" section — the biggest visual lift ── */
+#practices {
+  background: var(--ink);
+  border-top: none;
+  border-bottom: none;
+}
+
+#practices .home-section-kicker {
+  color: #60a5fa;
+}
+
+#practices .home-section-title {
+  color: #ffffff;
+}
+
+#practices .home-section-intro {
+  color: #94a3b8;
+}
+
+#practices .home-practice-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+#practices .home-practice-card:hover {
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+#practices .home-practice-card h3 {
+  color: #f1f5f9;
+}
+
+#practices .home-practice-tag {
+  color: #60a5fa;
+}
+
+#practices .home-practice-card p:last-of-type {
+  color: #94a3b8;
+}
+
+#practices .home-practice-link {
+  color: #60a5fa;
+}
+
+/* ── Animations ── */
 [data-home-animate] {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
 [data-home-animate].home-fade-in {
@@ -172,13 +337,28 @@
   transform: none;
 }
 
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .home-achievement-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .home-practice-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 @media (max-width: 768px) {
   .home-hero.section {
-    padding: clamp(6.5rem, 5rem + 6vw, 8rem) 0 3.5rem 0;
+    padding: clamp(48px, 8vw, 72px) 0 clamp(40px, 6vw, 60px);
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .home-section {
-    padding: 3.5rem 0;
+    padding: clamp(36px, 5vw, 56px) 0;
   }
 
   .home-hero-actions {
@@ -186,7 +366,12 @@
     align-items: stretch;
   }
 
-  .home-link-btn {
+  .btn-large {
     width: 100%;
+    text-align: center;
+  }
+
+  .home-practice-card {
+    padding: 28px 24px 24px;
   }
 }

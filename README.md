@@ -54,7 +54,6 @@ src/
     HowItWorks.jsx      # How it works section
     Services.jsx        # Services cards section
     WhyLongstake.jsx    # Benefits section
-    CallToAction.jsx    # CTA section
     Contact.jsx         # Contact form
     Footer.jsx          # Footer with links
   App.jsx               # Main app component

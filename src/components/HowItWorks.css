@@ -1,10 +1,8 @@
 .how-it-works {
-  background-color: var(--white);
+  background: var(--page);
   opacity: 0;
   transform: translateY(24px);
-  transition:
-    opacity 0.75s ease,
-    transform 0.75s ease;
+  transition: opacity 0.75s ease, transform 0.75s ease;
 }
 
 .how-it-works.fade-in {
@@ -15,77 +13,86 @@
 .hiw-head {
   text-align: center;
   max-width: 40rem;
-  margin: 0 auto 2.75rem;
+  margin: 0 auto 3rem;
 }
 
 .hiw-eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--primary-blue);
-  margin: 0 0 0.75rem;
+  color: var(--blue);
+  margin: 0 0 12px;
+  display: block;
 }
 
 .hiw-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .hiw-subtitle {
   margin-bottom: 0;
+  text-align: center;
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.55;
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Steps — reference style: blue top border, no card box */
 .hiw-steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem 1.5rem;
+  gap: 0 40px;
   max-width: 1080px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Horizontal connector line between steps */
+.hiw-steps::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--hair);
+  z-index: 0;
 }
 
 .hiw-step {
   margin: 0;
-  background: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: 14px;
-  padding: 1.5rem 1.6rem 1.6rem;
-  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.04);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.hiw-step:hover {
-  border-color: rgba(37, 99, 235, 0.25);
-  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+  padding: 28px 0 0;
+  border-top: 2px solid var(--blue);
+  position: relative;
+  z-index: 1;
 }
 
 .hiw-step-index {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--primary-blue);
-  opacity: 0.85;
-  margin: 0 0 0.85rem;
+  font: 600 11px/1 'JetBrains Mono', monospace;
+  color: var(--blue);
+  letter-spacing: 0.1em;
+  margin: 0 0 16px;
+  display: block;
 }
 
 .hiw-step-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-dark);
-  margin: 0 0 0.65rem;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 10px;
   line-height: 1.3;
 }
 
 .hiw-step-body {
   margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: var(--text-light);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--body);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -94,29 +101,30 @@
     transform: none;
     transition: none;
   }
-
-  .hiw-step {
-    transition: none;
-  }
-
-  .hiw-step:hover {
-    box-shadow: 0 2px 16px rgba(15, 23, 42, 0.04);
-    border-color: var(--border-gray);
-  }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .hiw-steps {
     grid-template-columns: 1fr;
+    gap: 0;
     max-width: 32rem;
-    gap: 1rem;
+  }
+
+  .hiw-steps::before {
+    display: none;
   }
 
   .hiw-step {
-    padding: 1.35rem 1.4rem 1.45rem;
+    padding: 24px 0 24px;
+    border-top: 2px solid var(--blue);
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .hiw-step:last-child {
+    border-bottom: none;
   }
 
   .hiw-head {
-    margin-bottom: 2.25rem;
+    margin-bottom: 2rem;
   }
 }

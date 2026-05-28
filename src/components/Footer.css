@@ -1,42 +1,33 @@
-/* Light, neutral footer — readable contact colors, Company block like reference layout */
-
-:root {
-  --footer-gradient-start: #f1f5f9;
-  --footer-gradient-end: #e8eef4;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --footer-gradient-start: #1e293b;
-    --footer-gradient-end: #0f172a;
-    --footer-grid-border: rgba(241, 245, 249, 0.1);
-  }
-}
-
 .footer-site {
-  background: linear-gradient(180deg, var(--footer-gradient-start) 0%, var(--footer-gradient-end) 100%);
-  border-top: 1px solid var(--border-gray);
-  color: var(--text-dark);
-  padding: 2.75rem 0 1.75rem;
+  /* Distinct “footer slab”: soft slate band with a faint blue dusk at the bottom */
+  background: linear-gradient(
+    180deg,
+    var(--soft) 0%,
+    color-mix(in srgb, var(--soft) 88%, var(--blue) 12%) 48%,
+    color-mix(in srgb, var(--page) 92%, var(--blue) 8%) 100%
+  );
+  border-top: 1px solid color-mix(in srgb, var(--hair) 75%, var(--blue) 25%);
+  color: var(--ink);
+  padding: clamp(48px, 6vw, 64px) 0 32px;
 }
 
 .footer-site-grid {
   display: grid;
-  grid-template-columns: minmax(160px, 1fr) minmax(260px, 1.35fr);
-  gap: 2.5rem 3.5rem;
+  grid-template-columns: minmax(160px, 1fr) minmax(220px, 1.2fr);
+  gap: 3rem 4rem;
   align-items: start;
-  max-width: 880px;
+  max-width: 860px;
   margin: 0 auto;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--footer-grid-border, rgba(30, 41, 59, 0.08));
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--hair), var(--blue) 22%);
 }
 
 .footer-site-heading {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin: 0 0 1.1rem;
-  letter-spacing: -0.01em;
+  font: 600 11px/1 'JetBrains Mono', monospace;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 16px;
 }
 
 .footer-site-list {
@@ -45,20 +36,20 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 10px;
 }
 
 .footer-site-link {
-  font-size: 0.95rem;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--text-light);
+  color: var(--body);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.15s;
 }
 
 .footer-site-link:hover,
 .footer-site-link:focus-visible {
-  color: var(--primary-blue);
+  color: var(--blue);
 }
 
 .footer-site-col--company {
@@ -76,40 +67,38 @@
 .footer-site-contact {
   display: flex;
   flex-direction: column;
-  gap: 1.35rem;
+  gap: 1.25rem;
 }
 
 .footer-site-contact-row {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 4px;
 }
 
 .footer-site-contact-row--stack {
-  gap: 0.45rem;
+  gap: 6px;
 }
 
 .footer-site-meta {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font: 500 11px/1 'JetBrains Mono', monospace;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-light);
-  opacity: 0.95;
+  color: var(--muted);
 }
 
 .footer-site-contact-link {
-  font-size: 0.95rem;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--primary-blue);
+  color: var(--blue);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.15s;
   width: fit-content;
 }
 
 .footer-site-contact-link:hover,
 .footer-site-contact-link:focus-visible {
-  color: var(--primary-blue-dark);
+  color: var(--blue-700);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -120,14 +109,16 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 4px;
 }
 
 .footer-site-copy {
   text-align: center;
   margin: 1.5rem 0 0;
-  font-size: 0.8125rem;
-  color: var(--text-light);
+  font: 500 12px/1 'JetBrains Mono', monospace;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 @media (max-width: 640px) {
@@ -140,16 +131,11 @@
     gap: 2.25rem;
     padding-bottom: 1.75rem;
   }
-
-  .footer-site-col--company,
-  .footer-site-col--contact {
-    text-align: left;
-  }
 }
 
 @media (max-width: 480px) {
   .footer-site-heading {
-    font-size: 1.05rem;
+    font-size: 10px;
   }
 
   .footer-site-contact-link {

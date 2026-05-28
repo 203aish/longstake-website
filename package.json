@@ -1,6 +1,7 @@
 {
   "name": "longstake-website",
   "version": "1.0.0",
+  "author": "203aish (https://github.com/203aish)",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,5 +1,5 @@
 .privacy-policy {
-  background-color: var(--white);
+  background: var(--page);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -11,7 +11,7 @@
 }
 
 .privacy-content {
-  max-width: 900px;
+  max-width: 860px;
   margin: 3rem auto 0;
   text-align: left;
 }
@@ -21,16 +21,17 @@
 }
 
 .privacy-heading {
-  font-size: 1.5rem;
+  font-size: clamp(18px, 2.5vw, 22px);
   font-weight: 600;
-  color: var(--primary-blue);
-  margin-bottom: 1rem;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
 }
 
 .privacy-section p {
-  color: var(--text-light);
-  line-height: 1.8;
-  font-size: 1rem;
+  color: var(--body);
+  line-height: 1.7;
+  font-size: 15px;
   margin-bottom: 1rem;
 }
 
@@ -41,41 +42,38 @@
 }
 
 .privacy-section ul li {
-  padding: 0.5rem 0;
-  padding-left: 1.5rem;
-  color: var(--text-light);
-  line-height: 1.7;
+  padding: 6px 0 6px 1.5rem;
+  color: var(--body);
+  line-height: 1.65;
+  font-size: 15px;
   position: relative;
 }
 
 .privacy-section ul li::before {
-  content: "•";
+  content: '→';
   position: absolute;
   left: 0;
-  color: var(--primary-blue);
+  color: var(--blue);
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 
 .privacy-email {
-  color: var(--primary-blue);
+  color: var(--blue);
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: color 0.15s;
 }
 
 .privacy-email:hover {
-  color: var(--primary-blue-dark);
+  color: var(--blue-700);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 @media (max-width: 768px) {
   .privacy-content {
     margin-top: 2rem;
-  }
-
-  .privacy-heading {
-    font-size: 1.25rem;
   }
 
   .privacy-section {

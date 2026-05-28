@@ -2,6 +2,7 @@
   min-height: 100vh;
 }
 
+/* Sticky header sits in normal flow — no legacy offset (old fixed-bar clearance). */
 .page-wrapper {
-  padding-top: 80px;
+  padding-top: 0;
 }
