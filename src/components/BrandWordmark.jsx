@@ -39,24 +39,6 @@ const LONGSTAKE_PARTS = [
   { text: 'stake', tone: 'blue' },
 ]
 
-const STAKENEX_PARTS = [
-  { text: 'stake', tone: 'blue' },
-  { text: 'nex', tone: 'iron' },
-]
-
-const STAKEFLOW_PARTS = [
-  { text: 'stake', tone: 'blue' },
-  { text: 'flow', tone: 'iron' },
-]
-
 export function LongstakeBrandMark({ variant = 'header', className = '' }) {
   return <BrandWordmark parts={LONGSTAKE_PARTS} variant={variant} className={className} />
-}
-
-export function StakenexBrandMark({ variant = 'nav', className = '' }) {
-  return <BrandWordmark parts={STAKENEX_PARTS} variant={variant} className={className} />
-}
-
-export function StakeflowBrandMark({ variant = 'nav', className = '' }) {
-  return <BrandWordmark parts={STAKEFLOW_PARTS} variant={variant} className={className} />
 }

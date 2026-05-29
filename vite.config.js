@@ -4,14 +4,12 @@ import { copyFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 
 /**
- * Hostinger (LiteSpeed) often serves real 404s for /stakeflow etc. even when .htaccess exists.
+ * Hostinger (LiteSpeed) often serves real 404s for /careers etc. even when .htaccess exists.
  * Copying the built index.html into one folder per BrowserRouter path gives a physical file so
- * /stakeflow (→ /stakeflow/) resolves without relying on mod_rewrite.
+ * /careers (→ /careers/) resolves without relying on mod_rewrite.
  * Keep in sync with src/App.jsx routes (except "/" and hash-only targets).
  */
 const SPA_ROUTE_SEGMENTS = [
-  'stakenex',
-  'stakeflow',
   'careers',
   'privacy-policy',
   'company-policy',

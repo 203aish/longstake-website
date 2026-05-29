@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { LongstakeBrandMark, StakenexBrandMark, StakeflowBrandMark } from './BrandWordmark'
+import { LongstakeBrandMark } from './BrandWordmark'
 import { TalkToUsLink } from './TalkToUsLink'
 import './Header.css'
 
@@ -70,9 +70,6 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', onDown)
   }, [companyOpen])
 
-  const navWordmarkLinkClass = ({ isActive }) =>
-    `nav-route nav-route--wordmark${isActive ? ' nav-route--active' : ''}`
-
   return (
     <>
       {mobileMenuOpen ? (
@@ -88,6 +85,18 @@ const Header = () => {
         className={`header ${isScrolled ? 'scrolled' : ''}${mobileMenuOpen ? ' header--mobile-open' : ''}`}
         role="banner"
       >
+        <div className="header-contactbar">
+          <div className="container header-contactbar__inner">
+            <a href="tel:+14378780203" className="header-contactbar__link">
+              <span aria-hidden className="header-contactbar__icon">&#9742;</span>
+              +1 (437) 878-0203
+            </a>
+            <a href="mailto:layla@longstake.ca" className="header-contactbar__link">
+              <span aria-hidden className="header-contactbar__icon">&#9993;</span>
+              layla@longstake.ca
+            </a>
+          </div>
+        </div>
         <div className="container header__inner">
           <nav className="nav" aria-label="Main navigation" id="site-primary-nav">
             <Link
@@ -115,27 +124,6 @@ const Header = () => {
               </span>
             </button>
             <ul className={`nav-links${mobileMenuOpen ? ' nav-links--drawer-open' : ''}`} id="site-nav-drawer-links">
-            <li className="nav-links__item">
-              <NavLink
-                to="/stakenex"
-                className={navWordmarkLinkClass}
-                end
-                aria-label="Stakenex"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <StakenexBrandMark />
-              </NavLink>
-            </li>
-            <li className="nav-links__item">
-              <NavLink
-                to="/stakeflow"
-                className={navWordmarkLinkClass}
-                aria-label="Stakeflow"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <StakeflowBrandMark />
-              </NavLink>
-            </li>
             <li
               className={`nav-links__item nav-dropdown${companyOpen ? ' nav-dropdown--open' : ''}`}
               ref={companyRef}

@@ -5,8 +5,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToHash from './ScrollToHash'
 import HomePage from './pages/HomePage'
-import StakenexPage from './pages/StakenexPage'
-import StakeflowPage from './pages/StakeflowPage'
 import CareersPage from './pages/CareersPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import CompanyPolicyPage from './pages/CompanyPolicyPage'
@@ -22,10 +20,10 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/stakenex" element={<StakenexPage />} />
-            <Route path="/stakenex/" element={<StakenexPage />} />
-            <Route path="/stakeflow" element={<StakeflowPage />} />
-            <Route path="/stakeflow/" element={<StakeflowPage />} />
+            <Route path="/stakenex" element={<Navigate to="/" replace />} />
+            <Route path="/stakenex/" element={<Navigate to="/" replace />} />
+            <Route path="/stakeflow" element={<Navigate to="/" replace />} />
+            <Route path="/stakeflow/" element={<Navigate to="/" replace />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/careers/" element={<CareersPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

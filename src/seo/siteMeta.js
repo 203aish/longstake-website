@@ -5,24 +5,17 @@ export const SITE_URL = 'https://longstake.ca'
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`
 
 const HOME_LANDING_META = {
-  title: 'Longstake | Company — Stakenex & Stakeflow',
+  title: 'Longstake | Digital Product Engineering, Web & Mobile, Meta & Google Ads',
   description:
-    'Longstake: Stakenex when you need investment for your business—fundraising, angel and strategic investor intros, and partnerships in North America. Stakeflow: digital product engineering, websites and mobile apps, Meta and Google Ads, social setup, and B2B integration.',
+    'Longstake: digital product engineering (websites, mobile apps, B2B integrations, IoT), paid acquisition on Meta and Google, Instagram and social setup, and AI-enabled product features when they genuinely fit your build. Canada-based, worldwide clients.',
   keywords:
-    'Longstake, Stakenex, Stakeflow, need investment for my business, raise capital, startup fundraising, angel investors Canada USA, custom software development, Meta Ads, Google Ads, mobile app development, Instagram business setup, B2B web development, IoT development',
+    'Longstake, digital product engineering, custom software development, website development company, mobile app development, Meta Ads management, Google Ads PPC, Instagram business setup, social media setup for business, B2B web development, enterprise integration, IoT development',
 }
 
 export const DEFAULT_PAGE_META = HOME_LANDING_META
 
 export const PAGE_META = {
   home: HOME_LANDING_META,
-  stakenex: {
-    title: 'Stakenex | Need Investment for Your Business? Raise Capital & Investor Intros | Longstake',
-    description:
-      'Stakenex helps when you need investment for your business: fundraising readiness, angel and strategic investor introductions, seed and venture conversations, and partnerships—principal-led across Canada and the USA for startups and SMBs.',
-    keywords:
-      'need investment for my business, raising capital, business funding, startup fundraising, small business investors, angel investors Canada, angel investors USA, seed funding, venture introductions, strategic partners, M&A advisory, Stakenex, Longstake',
-  },
   careers: {
     title: 'Careers | Longstake',
     description:
@@ -41,12 +34,5 @@ export const PAGE_META = {
     description:
       'Longstake company policies, standards, and guidelines governing how we work with clients and partners.',
     keywords: null,
-  },
-  stakeflow: {
-    title: 'Stakeflow | Digital Product Engineering, Web & Mobile, Meta & Google Ads | Longstake',
-    description:
-      'Stakeflow: product and software engineering (websites, mobile apps, B2B integrations, IoT), paid acquisition on Meta and Google, Instagram and social setup, and AI-enabled product features when they genuinely fit your build.',
-    keywords:
-      'digital product engineering, custom software development, website development company, mobile app development, Meta Ads management, Google Ads PPC, Instagram business setup, social media setup for business, B2B marketing, enterprise integration, IoT development, Stakeflow, Longstake',
   },
 }

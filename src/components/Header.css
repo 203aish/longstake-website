@@ -27,6 +27,41 @@
   align-items: center;
 }
 
+/* Mobile-only quick contact strip (so phone users don't scroll to the footer) */
+.header-contactbar {
+  display: none;
+}
+
+.header-contactbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  padding: 7px 0;
+}
+
+.header-contactbar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--body);
+  font: 500 12.5px/1 'Geist', sans-serif;
+  white-space: nowrap;
+}
+
+.header-contactbar__link:hover,
+.header-contactbar__link:active {
+  color: var(--blue);
+}
+
+.header-contactbar__icon {
+  font-size: 13px;
+  line-height: 1;
+  color: var(--blue);
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -331,6 +366,12 @@
 }
 
 @media (max-width: 768px) {
+  .header-contactbar {
+    display: block;
+    background: var(--soft);
+    border-bottom: 1px solid var(--hair);
+  }
+
   .nav-mobile-backdrop {
     display: block;
     position: fixed;

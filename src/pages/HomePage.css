@@ -71,12 +71,16 @@
   margin-bottom: 20px;
 }
 
+.home-hero-title-em {
+  color: var(--blue);
+}
+
 .home-hero-lead {
   font-size: clamp(16px, 1.5vw, 19px);
   line-height: 1.6;
   color: var(--body);
   max-width: 560px;
-  margin-bottom: 32px;
+  margin-bottom: 0;
 }
 
 /* ── Hero CTA buttons ── */

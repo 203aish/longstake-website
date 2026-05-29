@@ -1,6 +1,6 @@
 # Longstake Website
 
-A modern, professional marketing website for Longstake - a company that helps product owners prepare, position, and connect with strategic partners, acquirers, and companies interested in partnerships or acquisitions.
+A modern, professional marketing website for Longstake - a Canada-based firm delivering digital product engineering, paid media, social setup, and integrated engineering: websites, mobile apps, Meta and Google Ads, Instagram/social setup, and B2B/IoT integration.
 
 ## Features
 
@@ -50,13 +50,15 @@ npm run preview
 src/
   components/
     Header.jsx          # Sticky navigation header
-    Hero.jsx            # Hero section with headline and CTAs
-    HowItWorks.jsx      # How it works section
-    Services.jsx        # Services cards section
-    WhyLongstake.jsx    # Benefits section
-    Contact.jsx         # Contact form
+    BrandWordmark.jsx   # SVG Longstake wordmark
     Footer.jsx          # Footer with links
-  App.jsx               # Main app component
+    SEO.jsx             # JSON-LD structured data
+  pages/
+    HomePage.jsx        # Landing page (overview + what we do + typical mandates)
+    CareersPage.jsx     # Careers
+    PrivacyPolicyPage.jsx
+    CompanyPolicyPage.jsx
+  App.jsx               # Main app component + routes
   main.jsx              # Entry point
   index.css             # Global styles
 ```
@@ -68,15 +70,12 @@ src/
 - **Light Sections**: Light Gray (#f5f7fa)
 - **Typography**: Inter font family
 
-## Sections
+## Sections (Home)
 
-1. **Hero**: Main headline and call-to-action buttons
-2. **Statistics**: Market context / data section
-3. **How It Works**: Process overview
-4. **Services**: Service offerings
-5. **Why Longstake**: Key benefits
-6. **FAQ**: Common questions
-7. **Blog**: In-page guide content
-8. **Call to Action**: Final CTA section
-9. **Contact**: Contact details
-10. **Footer**: Links and copyright
+1. **Hero**: Headline and overview of what Longstake does
+2. **Our history**: How the firm developed
+3. **What we’ve achieved**: Highlights
+4. **When we started / Customers**: Background and engagement model
+5. **Build, integrate, launch, and show up**: Capability pillars
+6. **Typical mandates**: How teams engage us
+7. **Footer**: Contact details, links, and copyright

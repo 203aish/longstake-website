@@ -1,5 +1,5 @@
 # Hostinger / Apache / LiteSpeed — SPA (React Router) fallback
-# Deep links like /stakenex and /stakeflow need this. Upload to site root (public_html).
+# Deep links like /careers and /privacy-policy need this. Upload to site root (public_html).
 # In File Manager/FTP: enable “show hidden files” so .htaccess is not skipped.
 
 Options -MultiViews
@@ -13,7 +13,7 @@ DirectoryIndex index.html
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Vite outputs /segment/index.html per route; force trailing slash so LiteSpeed serves them
-  RewriteRule ^(stakenex|stakeflow|careers|privacy-policy|company-policy|contact)$ /$1/ [R=301,L]
+  RewriteRule ^(careers|privacy-policy|company-policy|contact)$ /$1/ [R=301,L]
 
   # CRA / React SPA: serve root index for anything else that isn’t a real file/dir
   RewriteRule ^index\.html$ - [L]
