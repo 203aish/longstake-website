@@ -73,9 +73,13 @@ const PRICING_STRUCTURED_DATA = {
     {
       '@type': 'Service',
       name: 'Longstake — websites, managed ads, and app development',
-      serviceType: 'Digital Product Engineering and Growth Services',
+      serviceType: 'Web Design, App Development, Google Ads Management, Meta Ads Management, Review Management',
       provider: { '@type': 'Organization', name: 'Longstake', url: 'https://longstake.ca' },
-      areaServed: { '@type': 'Place', name: 'Worldwide' },
+      areaServed: [
+        { '@type': 'City', name: 'Toronto', containedInPlace: { '@type': 'AdministrativeArea', name: 'Ontario' } },
+        { '@type': 'Place', name: 'Greater Toronto Area' },
+        { '@type': 'Place', name: 'Worldwide' },
+      ],
       url: 'https://longstake.ca/pricing',
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
