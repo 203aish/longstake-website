@@ -23,9 +23,9 @@ const PLANS = [
     setup: 'Free setup',
     summary: 'A dynamic site with one ad channel managed.',
     features: [
-      'Website + 1 ad channel (Google or Meta)',
-      'Review management + basic analytics',
-      'Ad spend billed directly to you (min. $300/mo recommended)',
+      'Website + ads management (Google or Meta)',
+      'Review management + analytics',
+      'Ads management for you',
     ],
   },
   {
@@ -35,9 +35,9 @@ const PLANS = [
     summary: 'Both ad channels and advanced analytics.',
     featured: true,
     features: [
-      'Website + both ad channels (Google + Meta)',
+      'Website + ads management (Google + Meta)',
       'Reviews + advanced analytics',
-      'Ad spend billed directly to you (min. $500/mo recommended)',
+      'Ads management for you',
     ],
   },
   {
@@ -58,12 +58,79 @@ const PLANS = [
     summary: 'A mobile or web app with full growth support.',
     features: [
       'Mobile or web app',
-      'Both ad channels managed + reviews',
+      'Ads management (Google + Meta) + reviews',
       'Priority support',
       'Full scope agreed in writing before work begins',
     ],
   },
 ]
+
+const FAQS = [
+  {
+    q: 'How much does a website cost with Longstake?',
+    a: 'Plans start at $9.9/mo for an unlimited-page static website (Starter). Dynamic sites with managed Google and Meta ads start at $29.9/mo (Growth), and a custom mobile or web app starts at $79.9/mo (App). Prices are in CAD and exclude applicable taxes.',
+  },
+  {
+    q: 'Do you manage Google and Meta ads?',
+    a: 'Yes. The Growth plan includes ads management on one channel (Google or Meta), and Scale, Pro, and App include both Google and Meta. We handle account structure, creative and copy support, conversion tracking, and review management.',
+  },
+  {
+    q: 'Is ad spend included in the monthly price?',
+    a: 'No. Your monthly plan covers management. Ad spend is billed directly to you by Google and Meta, so you keep full ownership and transparency of your ad accounts.',
+  },
+  {
+    q: 'Is there a setup fee?',
+    a: 'Starter, Growth, and Scale have free setup. Pro has a one-time $99 setup and the App plan has a $199 setup. App scope is always confirmed in writing before work begins.',
+  },
+  {
+    q: 'Which plan is right for me?',
+    a: 'If you only need a presence, choose Starter. For a site plus managed ads, choose Growth or Scale. Choose Pro for a dedicated account manager and faster support, or App if you need a mobile or web application. Not sure? Book a free demo or call us and we will help you decide.',
+  },
+]
+
+const priceValue = (monthly) => parseFloat(String(monthly).replace(/[^0-9.]/g, ''))
+
+const PRICING_STRUCTURED_DATA = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      name: 'Longstake — websites, managed ads, and app development',
+      serviceType: 'Digital Product Engineering and Growth Services',
+      provider: { '@type': 'Organization', name: 'Longstake', url: 'https://longstake.ca' },
+      areaServed: { '@type': 'Place', name: 'Worldwide' },
+      url: 'https://longstake.ca/pricing',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Longstake plans',
+        itemListElement: PLANS.map((plan) => ({
+          '@type': 'Offer',
+          name: `${plan.name} plan`,
+          description: plan.summary,
+          price: priceValue(plan.monthly),
+          priceCurrency: 'CAD',
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: priceValue(plan.monthly),
+            priceCurrency: 'CAD',
+            unitText: 'MONTH',
+            billingIncrement: 1,
+          },
+          category: 'Subscription',
+          url: 'https://longstake.ca/pricing',
+        })),
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: FAQS.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    },
+  ],
+}
 
 function PhoneGatePopup({ onClose, onSubmit }) {
   const inputRef = useRef(null)
@@ -147,9 +214,21 @@ const PricingPage = () => {
   usePageMeta({ ...PAGE_META.pricing, path: '/pricing' })
   const [showGate, setShowGate] = useState(true)
   const [submitted, setSubmitted] = useState(false)
+  const [demoPhone, setDemoPhone] = useState('')
+  const [demoSubmitted, setDemoSubmitted] = useState(false)
+
+  const handleDemoSubmit = (e) => {
+    e.preventDefault()
+    if (demoPhone.trim().length < 7) return
+    setDemoSubmitted(true)
+  }
 
   return (
     <div className="pricing-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PRICING_STRUCTURED_DATA) }}
+      />
       <section className="pricing-hero section">
         <div className="container">
           <p className="pricing-eyebrow">Pricing</p>
@@ -191,7 +270,7 @@ const PricingPage = () => {
                   className="pricing-card-cta"
                   onClick={() => setShowGate(true)}
                 >
-                  Get {plan.name}
+                  Buy Now
                 </button>
               </article>
             ))}
@@ -200,6 +279,63 @@ const PricingPage = () => {
             Prices are in CAD and exclude applicable taxes. Ad spend (Google / Meta) is paid directly by
             the client. App plan scope is confirmed in writing before work begins.
           </p>
+        </div>
+      </section>
+
+      <section className="pricing-faq" id="pricing-faq">
+        <div className="container">
+          <h2 className="pricing-faq-title">Pricing FAQ</h2>
+          <ul className="pricing-faq-list">
+            {FAQS.map((item) => (
+              <li key={item.q} className="pricing-faq-item">
+                <h3 className="pricing-faq-q">{item.q}</h3>
+                <p className="pricing-faq-a">{item.a}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="pricing-demo">
+        <div className="container pricing-demo-inner">
+          <span className="pricing-demo-icon" aria-hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="4" width="18" height="17" rx="2" />
+              <path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
+          </span>
+          <h2 className="pricing-demo-title">Let us help you schedule a free demo.</h2>
+
+          {demoSubmitted ? (
+            <p className="pricing-demo-thanks" role="status">
+              Thanks—we’ll call to set up your demo shortly.
+            </p>
+          ) : (
+            <form className="pricing-demo-form" onSubmit={handleDemoSubmit}>
+              <input
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                className="pricing-demo-input"
+                placeholder="Enter your phone number"
+                value={demoPhone}
+                onChange={(e) => setDemoPhone(e.target.value)}
+                aria-label="Phone number for a free demo"
+              />
+              <button type="submit" className="pricing-demo-submit">
+                Schedule a Demo
+                <span aria-hidden className="pricing-demo-submit-arrow">→</span>
+              </button>
+            </form>
+          )}
+
+          <p className="pricing-demo-sub">Not sure which plan is right for you?</p>
+          <a href="tel:+14378780203" className="pricing-demo-call">
+            <svg className="pricing-demo-call-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
+            </svg>
+            Call Now
+          </a>
         </div>
       </section>
 

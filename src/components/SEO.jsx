@@ -15,7 +15,7 @@ const SEO = () => {
         url: `${SITE_URL}/`,
         name: 'Longstake',
         description:
-          'Longstake is a Canada-based firm delivering digital product engineering—websites, mobile apps, Meta and Google Ads, social setup, and integrated B2B and IoT systems.',
+          'Longstake is a Toronto-based studio delivering web design and development, mobile apps, managed Google and Meta ads, and Facebook & Instagram setup—serving Toronto, the GTA, and clients worldwide.',
         publisher: { '@id': ORG_ID },
         inLanguage: ['en-CA', 'en-US'],
         copyrightHolder: { '@id': ORG_ID },
@@ -28,7 +28,7 @@ const SEO = () => {
         logo: `${SITE_URL}/logo.svg`,
         image: `${SITE_URL}/og-image.png`,
         description:
-          'Longstake delivers digital product engineering, paid media, and integrated software for hardware-led and B2B teams—Canada-based, worldwide mandates.',
+          'Longstake is a Toronto web design, app development, and digital marketing studio—websites, mobile apps, managed Google and Meta ads, and social setup for businesses in Toronto, the GTA, and worldwide.',
         knowsAbout: [
           'Hardware startups',
           'Custom software and web development',
@@ -55,8 +55,17 @@ const SEO = () => {
         ],
         address: {
           '@type': 'PostalAddress',
+          addressLocality: 'Toronto',
+          addressRegion: 'ON',
           addressCountry: 'CA',
         },
+        areaServed: [
+          { '@type': 'City', name: 'Toronto' },
+          { '@type': 'AdministrativeArea', name: 'Greater Toronto Area' },
+          { '@type': 'AdministrativeArea', name: 'Ontario' },
+          { '@type': 'Country', name: 'Canada' },
+          { '@type': 'Place', name: 'Worldwide' },
+        ],
         sameAs: [],
       },
       {
@@ -78,7 +87,14 @@ const SEO = () => {
         },
         address: {
           '@type': 'PostalAddress',
+          addressLocality: 'Toronto',
+          addressRegion: 'ON',
           addressCountry: 'CA',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 43.6532,
+          longitude: -79.3832,
         },
         serviceType: [
           'Web and Mobile Product Development',
@@ -88,10 +104,12 @@ const SEO = () => {
           'Hardware–Software Integration',
           'IoT and Embedded Development',
         ],
-        areaServed: {
-          '@type': 'Place',
-          name: 'Worldwide',
-        },
+        areaServed: [
+          { '@type': 'City', name: 'Toronto' },
+          { '@type': 'AdministrativeArea', name: 'Greater Toronto Area' },
+          { '@type': 'AdministrativeArea', name: 'Ontario' },
+          { '@type': 'Place', name: 'Worldwide' },
+        ],
         offers: {
           '@type': 'Offer',
           description:

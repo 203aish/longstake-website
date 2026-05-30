@@ -5,11 +5,11 @@ export const SITE_URL = 'https://longstake.ca'
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`
 
 const HOME_LANDING_META = {
-  title: 'Longstake | Digital Product Engineering, Web & Mobile, Meta & Google Ads',
+  title: 'Toronto Web Design, App Development & Meta/Google Ads | Longstake',
   description:
-    'Longstake: digital product engineering (websites, mobile apps, B2B integrations, IoT), paid acquisition on Meta and Google, Instagram and social setup, and AI-enabled product features when they genuinely fit your build. Canada-based, worldwide clients.',
+    'Longstake is a Toronto web design, development, and digital marketing studio: websites and website redesigns, mobile app development, Facebook & Instagram setup, and managed Google and Meta ads. Serving Toronto, the GTA, and clients worldwide.',
   keywords:
-    'Longstake, digital product engineering, custom software development, website development company, mobile app development, Meta Ads management, Google Ads PPC, Instagram business setup, social media setup for business, B2B web development, enterprise integration, IoT development',
+    'web design Toronto, web design services Toronto, website development Toronto, website redesign Toronto, mobile app development company Toronto, app development Toronto, facebook and instagram ads management Toronto, meta ads agency Toronto, google ads management Toronto, social media setup service Toronto, Longstake',
 }
 
 export const DEFAULT_PAGE_META = HOME_LANDING_META
@@ -17,11 +17,11 @@ export const DEFAULT_PAGE_META = HOME_LANDING_META
 export const PAGE_META = {
   home: HOME_LANDING_META,
   pricing: {
-    title: 'Pricing | Longstake',
+    title: 'Pricing | Toronto Web Design & Managed Google/Meta Ads from $9.9/mo | Longstake',
     description:
-      'Longstake pricing: simple monthly plans for websites, managed Google and Meta ads, reviews, analytics, and apps. From a static starter site to a full app build with priority support.',
+      'Longstake pricing for Toronto businesses: monthly plans from $9.9/mo for websites, managed Google and Meta ads, reviews, analytics, and mobile/web apps. Free setup on Starter, Growth, and Scale. Ad spend billed directly to you.',
     keywords:
-      'Longstake pricing, website plans, managed Google Ads pricing, managed Meta Ads pricing, small business website cost, web app development pricing',
+      'web design pricing Toronto, website cost Toronto, managed Google Ads pricing Toronto, managed Meta Ads pricing Toronto, social media management pricing Toronto, mobile app development cost Toronto, monthly website plans, Longstake pricing',
   },
   careers: {
     title: 'Careers | Longstake',

@@ -5,7 +5,7 @@
 /* ── Hero ── */
 .pricing-hero {
   background: var(--page);
-  padding: clamp(48px, 7vw, 80px) 0 clamp(20px, 3vw, 32px);
+  padding: clamp(28px, 4vw, 44px) 0 clamp(14px, 2vw, 20px);
 }
 
 .pricing-eyebrow {
@@ -216,6 +216,207 @@
   max-width: 760px;
 }
 
+/* ── Pricing FAQ ── */
+.pricing-faq {
+  background: var(--page);
+  padding: clamp(40px, 6vw, 72px) 0;
+}
+
+.pricing-faq-title {
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+.pricing-faq-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing-faq-item {
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  padding: 22px 24px;
+}
+
+.pricing-faq-q {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.pricing-faq-a {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+/* ── Demo / call CTA below the plans ── */
+.pricing-demo {
+  background: var(--soft);
+  border-top: 1px solid var(--hair);
+  padding: clamp(48px, 7vw, 84px) 0;
+}
+
+.pricing-demo-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pricing-demo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  color: var(--blue);
+  margin-bottom: 18px;
+}
+
+.pricing-demo-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.pricing-demo-title {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 24px;
+  max-width: 560px;
+  text-wrap: balance;
+}
+
+.pricing-demo-form {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 540px;
+}
+
+.pricing-demo-input {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pricing-demo-input::placeholder {
+  color: var(--muted);
+}
+
+.pricing-demo-input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.pricing-demo-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 12px;
+  background: var(--blue);
+  color: var(--on-brand-primary);
+  font: 600 15px/1 'Geist', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pricing-demo-submit:hover {
+  background: var(--blue-700);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.32);
+}
+
+.pricing-demo-submit-arrow {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.pricing-demo-thanks {
+  margin: 0;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--blue) 10%, var(--paper));
+  border: 1px solid color-mix(in srgb, var(--blue) 30%, transparent);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  max-width: 540px;
+}
+
+.pricing-demo-sub {
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 40px 0 18px;
+}
+
+.pricing-demo-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: var(--on-brand-primary);
+  font: 600 16px/1 'Geist', sans-serif;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.28);
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pricing-demo-call:hover {
+  background: var(--blue-700);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.36);
+}
+
+.pricing-demo-call-icon {
+  width: 17px;
+  height: 17px;
+}
+
+@media (max-width: 560px) {
+  .pricing-demo-form {
+    flex-direction: column;
+  }
+
+  .pricing-demo-submit {
+    justify-content: center;
+  }
+}
+
 /* ── Phone-gate popup ── */
 .pricing-modal-overlay {
   position: fixed;
@@ -319,21 +520,21 @@
   padding: 15px 20px;
   border: none;
   border-radius: 999px;
-  background: #34c759;
-  color: #ffffff;
+  background: var(--blue);
+  color: var(--on-brand-primary);
   font: 600 17px/1 'Geist', sans-serif;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .pricing-modal-submit:hover {
-  background: #2fb350;
+  background: var(--blue-700);
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(52, 199, 89, 0.32);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.32);
 }
 
 .pricing-modal-submit:focus-visible {
-  outline: 2px solid #34c759;
+  outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
 
