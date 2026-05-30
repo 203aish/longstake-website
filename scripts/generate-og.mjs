@@ -24,12 +24,9 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 
 const pngPath = join(publicDir, 'og-image.png')
-const webpPath = join(publicDir, 'og-image.webp')
 
 const input = Buffer.from(svg)
 
 await sharp(input).resize(1200, 630, { fit: 'fill' }).png({ compressionLevel: 9 }).toFile(pngPath)
-await sharp(input).resize(1200, 630, { fit: 'fill' }).webp({ quality: 90 }).toFile(webpPath)
 
 console.log('Wrote', pngPath)
-console.log('Wrote', webpPath)

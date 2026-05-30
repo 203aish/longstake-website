@@ -216,53 +216,6 @@
   max-width: 760px;
 }
 
-/* ── Pricing FAQ ── */
-.pricing-faq {
-  background: var(--page);
-  padding: clamp(40px, 6vw, 72px) 0;
-}
-
-.pricing-faq-title {
-  font-size: clamp(24px, 3.5vw, 34px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin: 0 0 28px;
-  text-align: center;
-}
-
-.pricing-faq-list {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 760px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.pricing-faq-item {
-  background: var(--paper);
-  border: 1px solid var(--hair);
-  border-radius: 14px;
-  padding: 22px 24px;
-}
-
-.pricing-faq-q {
-  margin: 0 0 8px;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-
-.pricing-faq-a {
-  margin: 0;
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--body);
-}
-
 /* ── Demo / call CTA below the plans ── */
 .pricing-demo {
   background: var(--soft);

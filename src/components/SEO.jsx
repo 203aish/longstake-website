@@ -15,7 +15,7 @@ const SEO = () => {
         url: `${SITE_URL}/`,
         name: 'Longstake',
         description:
-          'Longstake is a Toronto-based studio delivering web design and development, mobile apps, managed Google and Meta ads, and Facebook & Instagram setup—serving Toronto, the GTA, and clients worldwide.',
+          'Longstake is a Toronto studio for websites, mobile and web apps, managed Google and Meta ads, Google review management, and Facebook/Instagram/LinkedIn setup—monthly plans from $9.9/mo.',
         publisher: { '@id': ORG_ID },
         inLanguage: ['en-CA', 'en-US'],
         copyrightHolder: { '@id': ORG_ID },
@@ -28,18 +28,20 @@ const SEO = () => {
         logo: `${SITE_URL}/logo.svg`,
         image: `${SITE_URL}/og-image.png`,
         description:
-          'Longstake is a Toronto web design, app development, and digital marketing studio—websites, mobile apps, managed Google and Meta ads, and social setup for businesses in Toronto, the GTA, and worldwide.',
+          'Longstake is a Toronto web design and digital marketing studio—websites, apps, managed Google and Meta ads, review management, and social setup for Toronto, the GTA, and worldwide clients.',
         knowsAbout: [
-          'Hardware startups',
-          'Custom software and web development',
+          'Web design and website development',
+          'Website redesign',
           'Mobile application development',
-          'Meta Ads and Google Ads',
+          'Web application development',
+          'Google Ads management',
+          'Meta Ads and Facebook advertising',
+          'Instagram advertising and business setup',
           'Social media setup for business',
-          'IoT software development',
-          'Embedded systems',
-          'Enterprise system integration',
-          'SaaS and B2B product engineering',
-          'AI-enabled product features',
+          'Google review management',
+          'Automated review responses',
+          'Small business digital marketing',
+          'WhatsApp business chat integration',
         ],
         contactPoint: [
           {
@@ -74,7 +76,7 @@ const SEO = () => {
         name: 'Longstake',
         parentOrganization: { '@id': ORG_ID },
         description:
-          'Principal-led delivery for digital products, paid acquisition, social presence, and integrated engineering for hardware-led and B2B teams.',
+          'Toronto studio for websites, managed Google and Meta ads, Google review management, and social profile setup—one partner for site, ads, and reviews.',
         url: SITE_URL,
         logo: `${SITE_URL}/logo.svg`,
         contactPoint: {
@@ -97,12 +99,13 @@ const SEO = () => {
           longitude: -79.3832,
         },
         serviceType: [
-          'Web and Mobile Product Development',
-          'Meta Ads and Google Ads Management',
+          'Web Design and Website Development',
+          'Website Redesign',
+          'Mobile and Web Application Development',
+          'Google Ads Management',
+          'Meta Ads and Facebook Instagram Advertising',
           'Social Media Account Setup',
-          'Custom Software Development',
-          'Hardware–Software Integration',
-          'IoT and Embedded Development',
+          'Google Review Management',
         ],
         areaServed: [
           { '@type': 'City', name: 'Toronto' },
@@ -113,24 +116,27 @@ const SEO = () => {
         offers: {
           '@type': 'Offer',
           description:
-            'Scoped build, media, and integration for B2B and hardware-led teams.',
+            'Monthly plans from $9.9/mo for websites, managed ads, reviews, and apps. See https://longstake.ca/pricing',
+          url: `${SITE_URL}/pricing`,
         },
       },
       {
         '@type': 'Service',
-        name: 'Longstake — digital products, paid media, social, and integrated engineering',
-        serviceType: 'Digital Product Engineering and Growth Services',
+        name: 'Longstake — websites, managed ads, reviews, and apps',
+        serviceType: 'Web Design and Digital Marketing',
         provider: { '@id': ORG_ID },
-        areaServed: {
-          '@type': 'Place',
-          name: 'Worldwide',
-        },
+        areaServed: [
+          { '@type': 'City', name: 'Toronto' },
+          { '@type': 'AdministrativeArea', name: 'Greater Toronto Area' },
+          { '@type': 'Place', name: 'Worldwide' },
+        ],
         description:
-          'Longstake helps teams ship websites and mobile apps, run Meta and Google Ads with sound tracking, set up Instagram and social profiles, and connect embedded, IoT, and enterprise systems—plus AI-enabled features in the product when they are the right fit.',
+          'Longstake helps Toronto-area businesses with websites, mobile and web apps, managed Google and Meta ads, automated Google review responses, and Facebook/Instagram/LinkedIn setup.',
         offers: {
           '@type': 'Offer',
           description:
-            'Coordinated build and go-to-market execution for manufacturers, industrial teams, and B2B companies.',
+            'Starter from $9.9/mo; Growth, Scale, Pro, and App plans for ads management and apps.',
+          url: `${SITE_URL}/pricing`,
         },
       },
     ],

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "generate:og": "node scripts/generate-og.mjs"
+    "generate:og": "node scripts/generate-og.mjs",
+    "sync:favicons": "node scripts/sync-favicons.mjs"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -18,8 +19,8 @@
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
+    "png-to-ico": "^3.0.1",
     "sharp": "^0.34.5",
-    "svg2img": "^1.0.0-beta.2",
     "vite": "^5.0.8"
   }
 }

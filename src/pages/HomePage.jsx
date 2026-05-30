@@ -13,47 +13,47 @@ const COMPANY_STATS = {
 
 const CAPABILITY_GROUPS = [
   {
-    title: 'Build',
+    title: 'Websites',
     body:
-      'Websites, marketing pages, and mobile apps—the surfaces buyers and teams actually use. B2B UX, internal tools, and SaaS-style product work, with AI-enabled features only where they genuinely strengthen the product—not as filler.',
+      'Static and dynamic sites—the pages customers actually land on. Unlimited-page builds, WhatsApp chat, click-to-call, and social links so your site works as a front door, not a brochure.',
   },
   {
-    title: 'Connect & integrate',
+    title: 'Apps',
     body:
-      'Embedded firmware, IoT and telemetry, edge-to-cloud paths, CRM and ERP touches, APIs, and the glue between legacy systems and new product experiences your sales and ops teams rely on.',
+      'Mobile and web apps when you need more than a site—scoped and agreed in writing before work begins, with the same team that handles your ads and reviews when you want one partner.',
   },
   {
-    title: 'Launch & grow',
+    title: 'Ads management',
     body:
-      'Meta Ads and Google Ads: account structure, creative and copy support, conversion tracking, and landing paths so paid demand meets a credible funnel—not set-it-and-forget-it vanity spend.',
+      'Google Ads and Meta (Facebook & Instagram): account structure, creative and copy support, conversion tracking, and landing paths—management on one channel or both, with ad spend billed directly to you.',
   },
   {
-    title: 'Presence',
+    title: 'Reviews & social',
     body:
-      'Instagram and social account setup, profile optimization, and positioning that matches your site and campaigns—so inbound channels tell one coherent story for technical and B2B buyers.',
+      'Automated Google review responses, review management, monthly reporting, and social profile setup on Facebook, Instagram, and LinkedIn—aligned with your site and campaigns.',
   },
 ]
 
 const SCENARIOS = [
   {
-    title: 'You need the full go-to-market thread',
+    title: 'You need a site that does the basics well',
     body:
-      'A new site or app, paid social and search to get qualified traffic, and social profiles that do not look like an afterthought—we structure the pieces so engineering, creative, and media stay aligned.',
+      'A professional web presence with reviews handled, social links in place, and easy ways to call or message you—without juggling five vendors for setup.',
   },
   {
-    title: 'Software that belongs with the hardware',
+    title: 'You want a site plus managed ads',
     body:
-      'You have a device or pilot fleet and need firmware, cloud, or customer-facing software that matches real field behaviour—while your marketing stack catches up.',
+      'A new or upgraded website with Google or Meta ads managed for you—tracking, landing pages, and review management tied together instead of living in separate tools.',
   },
   {
-    title: 'Ads without a broken funnel',
+    title: 'You need both ad channels and analytics',
     body:
-      'Campaigns are live but landing pages, tracking, or handoffs to sales are shaky—we tighten the path from click to conversation so procurement and technical buyers see a serious operator.',
+      'Google and Meta running together, reviews monitored, and analytics that show what is working—so you can see demand and reputation in one place.',
   },
   {
-    title: 'One partner instead of five vendors',
+    title: 'You need an app with full growth support',
     body:
-      'Build, media, and social used to live in separate shops—we coordinate delivery so timelines, messaging, and technical reality do not drift apart mid-launch.',
+      'A mobile or web app plus ads management, reviews, and priority support—one coordinated practice instead of a dev shop and a separate media agency.',
   },
 ]
 
@@ -83,10 +83,9 @@ const HomePage = () => {
             <span className="home-hero-title-em">digital presence</span>
           </h1>
           <p className="home-hero-lead">
-            Longstake is a Canada-based firm helping ambitious teams ship integrated hardware–software
-            solutions and bring them to market: websites and mobile apps, Meta and Google Ads, Instagram
-            and social setup, and the embedded or enterprise integrations that sit underneath—with
-            AI-enabled features when they are the right tool, not a headline.
+            Longstake helps Toronto-area businesses build and grow online: websites and mobile apps,
+            managed Google and Meta ads, automated Google review responses, and social setup on Facebook,
+            Instagram, and LinkedIn—simple monthly plans from $9.9/mo.
           </p>
         </div>
       </section>
@@ -96,17 +95,15 @@ const HomePage = () => {
           <h2 className="home-section-title">Our history</h2>
           <div className="home-prose">
             <p>
-              Longstake grew out of a simple observation: many strong teams—bridging hardware and
-              software, or trying to launch a digital product well—were underserved by generic agencies
-              and one-size-fits-all vendors. The firm developed around{' '}
-              <strong>clarity, deep listening, and respect for how products actually get built</strong>,
-              first in full-stack delivery for connected products and later across the full go-to-market
-              thread.
+              Longstake grew out of a simple observation: many small and mid-sized businesses needed a
+              credible website, managed ads, and review handling—not a bloated agency pitch or a stack of
+              disconnected freelancers. The firm developed around{' '}
+              <strong>clear scope, practical delivery, and one partner for the full thread</strong>.
             </p>
             <p>
-              As client needs matured, we concentrated on what we do best: digital products, websites and
-              mobile apps, paid media on Meta and Google, social setup, and the integrations
-              underneath—so the same ethos of clarity and fit extends from the codebase to the channel.
+              Today that means websites and apps, ads management on Google and Meta, review responses and
+              reporting, and social profiles that match your site—so what you offer online lines up with
+              what you run in ads and on Google.
             </p>
           </div>
         </div>
@@ -121,62 +118,38 @@ const HomePage = () => {
           </p>
           <ul className="home-achievement-grid">
             <li className="home-achievement-card">
-              <h3>Operator-grade delivery</h3>
+              <h3>Websites &amp; apps</h3>
               <p>
-                Work spans web and mobile, Meta and Google Ads, social presence, IoT and embedded work,
-                and integrations for industrial and hardware-led teams.
+                Static and dynamic sites, plus mobile and web apps—built to support calls, WhatsApp, and
+                social links from day one.
               </p>
             </li>
             <li className="home-achievement-card">
-              <h3>Cross-border reach</h3>
+              <h3>Managed Google &amp; Meta ads</h3>
               <p>
-                A network that spans <strong>Canada, the United States</strong>, and international
-                relationships where mandates require it.
+                Ads management on one channel or both, with tracking and landing paths so paid traffic
+                meets a site that can convert.
               </p>
             </li>
             <li className="home-achievement-card">
-              <h3>Build and go-to-market together</h3>
+              <h3>Reviews &amp; reporting</h3>
               <p>
-                Recognition that <strong>product execution</strong> and <strong>demand</strong> move
-                together—so engineering, creative, and media stay aligned instead of drifting apart.
+                Automated Google review responses, review management, and monthly reports so reputation
+                is not an afterthought.
               </p>
             </li>
             <li className="home-achievement-card">
-              <h3>Coherent inbound</h3>
+              <h3>Social presence</h3>
               <p>
-                Websites, campaigns, and social profiles built to tell one story, so technical and B2B
-                buyers meet a credible operator at every touchpoint.
+                Facebook, Instagram, and LinkedIn setup and links that match your brand—aligned with your
+                site and campaigns.
               </p>
             </li>
           </ul>
         </div>
       </section>
 
-      <section className="home-section" id="when-we-started" data-home-animate>
-        <div className="container home-narrow">
-          <h2 className="home-section-title">When we started</h2>
-          <div className="home-prose">
-            {COMPANY_STATS.foundedYear ? (
-              <p>
-                Longstake was founded in <strong>{COMPANY_STATS.foundedYear}</strong> in Canada, with a
-                mandate to make product delivery as serious as the companies behind it.
-              </p>
-            ) : (
-              <p>
-                Longstake was established in <strong>Canada</strong> as a principal-led practice focused
-                on building and launching digital products. We’re glad to share more about our timeline
-                in conversation.
-              </p>
-            )}
-            <p>
-              That early focus on fit, preparation, and discretion continues to guide how we accept
-              mandates and work alongside clients.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section home-section--alt" id="customers" data-home-animate>
+      <section className="home-section" id="customers" data-home-animate>
         <div className="container home-narrow">
           <h2 className="home-section-title">Customers &amp; engagements</h2>
           <div className="home-prose">
@@ -187,9 +160,9 @@ const HomePage = () => {
               </p>
             ) : (
               <p>
-                We work with a <strong>limited number of active mandates</strong> at any time so
-                leadership stays close to each engagement. Clients include hardware-led and B2B companies
-                shipping connected products, running paid media, and modernizing their integrations.
+                We work with a <strong>limited number of active clients</strong> at any time so delivery
+                stays hands-on. Typical engagements: new or upgraded websites, managed Google and Meta
+                ads, review handling, and app builds when the scope calls for it.
               </p>
             )}
           </div>
@@ -198,10 +171,10 @@ const HomePage = () => {
 
       <section className="home-section" id="what-we-do" data-home-animate>
         <div className="container">
-          <h2 className="home-section-title">Build, integrate, launch, and show up</h2>
+          <h2 className="home-section-title">What we offer</h2>
           <p className="home-section-intro">
-            Four ways we usually work with teams—scope follows your stage, whether you need a first site,
-            a campaign, an app, or the full stack.
+            The same four pillars behind our plans—whether you need a starter site or the full stack with
+            apps and both ad channels.
           </p>
           <div className="home-practice-grid">
             {CAPABILITY_GROUPS.map((group) => (
@@ -218,7 +191,7 @@ const HomePage = () => {
         <div className="container">
           <h2 className="home-section-title">Typical mandates</h2>
           <p className="home-section-intro">
-            Short narratives from how teams actually engage us—not a keyword list pasted into cards.
+            How teams usually start with us—aligned with our Starter through App plans on the pricing page.
           </p>
           <div className="home-practice-grid">
             {SCENARIOS.map((s) => (

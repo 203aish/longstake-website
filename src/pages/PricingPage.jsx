@@ -65,29 +65,6 @@ const PLANS = [
   },
 ]
 
-const FAQS = [
-  {
-    q: 'How much does a website cost with Longstake?',
-    a: 'Plans start at $9.9/mo for an unlimited-page static website (Starter). Dynamic sites with managed Google and Meta ads start at $29.9/mo (Growth), and a custom mobile or web app starts at $79.9/mo (App). Prices are in CAD and exclude applicable taxes.',
-  },
-  {
-    q: 'Do you manage Google and Meta ads?',
-    a: 'Yes. The Growth plan includes ads management on one channel (Google or Meta), and Scale, Pro, and App include both Google and Meta. We handle account structure, creative and copy support, conversion tracking, and review management.',
-  },
-  {
-    q: 'Is ad spend included in the monthly price?',
-    a: 'No. Your monthly plan covers management. Ad spend is billed directly to you by Google and Meta, so you keep full ownership and transparency of your ad accounts.',
-  },
-  {
-    q: 'Is there a setup fee?',
-    a: 'Starter, Growth, and Scale have free setup. Pro has a one-time $99 setup and the App plan has a $199 setup. App scope is always confirmed in writing before work begins.',
-  },
-  {
-    q: 'Which plan is right for me?',
-    a: 'If you only need a presence, choose Starter. For a site plus managed ads, choose Growth or Scale. Choose Pro for a dedicated account manager and faster support, or App if you need a mobile or web application. Not sure? Book a free demo or call us and we will help you decide.',
-  },
-]
-
 const priceValue = (monthly) => parseFloat(String(monthly).replace(/[^0-9.]/g, ''))
 
 const PRICING_STRUCTURED_DATA = {
@@ -120,14 +97,6 @@ const PRICING_STRUCTURED_DATA = {
           url: 'https://longstake.ca/pricing',
         })),
       },
-    },
-    {
-      '@type': 'FAQPage',
-      mainEntity: FAQS.map((item) => ({
-        '@type': 'Question',
-        name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
-      })),
     },
   ],
 }
@@ -279,20 +248,6 @@ const PricingPage = () => {
             Prices are in CAD and exclude applicable taxes. Ad spend (Google / Meta) is paid directly by
             the client. App plan scope is confirmed in writing before work begins.
           </p>
-        </div>
-      </section>
-
-      <section className="pricing-faq" id="pricing-faq">
-        <div className="container">
-          <h2 className="pricing-faq-title">Pricing FAQ</h2>
-          <ul className="pricing-faq-list">
-            {FAQS.map((item) => (
-              <li key={item.q} className="pricing-faq-item">
-                <h3 className="pricing-faq-q">{item.q}</h3>
-                <p className="pricing-faq-a">{item.a}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
