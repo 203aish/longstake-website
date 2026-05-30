@@ -16,6 +16,13 @@ export const DEFAULT_PAGE_META = HOME_LANDING_META
 
 export const PAGE_META = {
   home: HOME_LANDING_META,
+  pricing: {
+    title: 'Pricing | Longstake',
+    description:
+      'Longstake pricing: simple monthly plans for websites, managed Google and Meta ads, reviews, analytics, and apps. From a static starter site to a full app build with priority support.',
+    keywords:
+      'Longstake pricing, website plans, managed Google Ads pricing, managed Meta Ads pricing, small business website cost, web app development pricing',
+  },
   careers: {
     title: 'Careers | Longstake',
     description:

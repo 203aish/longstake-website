@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { LongstakeBrandMark } from './BrandWordmark'
 import { TalkToUsLink } from './TalkToUsLink'
@@ -6,9 +6,7 @@ import './Header.css'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [companyOpen, setCompanyOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const companyRef = useRef(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -21,19 +19,13 @@ const Header = () => {
   }, [])
 
   useEffect(() => {
-    setCompanyOpen(false)
     setMobileMenuOpen(false)
   }, [location.pathname])
-
-  useEffect(() => {
-    if (!mobileMenuOpen) setCompanyOpen(false)
-  }, [mobileMenuOpen])
 
   useEffect(() => {
     const closeOnEscape = (e) => {
       if (e.key !== 'Escape') return
       setMobileMenuOpen(false)
-      setCompanyOpen(false)
     }
     window.addEventListener('keydown', closeOnEscape)
     return () => window.removeEventListener('keydown', closeOnEscape)
@@ -59,17 +51,6 @@ const Header = () => {
     return () => mq.removeEventListener('change', syncDrawerToViewport)
   }, [])
 
-  useEffect(() => {
-    if (!companyOpen) return undefined
-    const onDown = (e) => {
-      if (companyRef.current && !companyRef.current.contains(e.target)) {
-        setCompanyOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', onDown)
-    return () => document.removeEventListener('mousedown', onDown)
-  }, [companyOpen])
-
   return (
     <>
       {mobileMenuOpen ? (
@@ -85,18 +66,6 @@ const Header = () => {
         className={`header ${isScrolled ? 'scrolled' : ''}${mobileMenuOpen ? ' header--mobile-open' : ''}`}
         role="banner"
       >
-        <div className="header-contactbar">
-          <div className="container header-contactbar__inner">
-            <a href="tel:+14378780203" className="header-contactbar__link">
-              <span aria-hidden className="header-contactbar__icon">&#9742;</span>
-              +1 (437) 878-0203
-            </a>
-            <a href="mailto:layla@longstake.ca" className="header-contactbar__link">
-              <span aria-hidden className="header-contactbar__icon">&#9993;</span>
-              layla@longstake.ca
-            </a>
-          </div>
-        </div>
         <div className="container header__inner">
           <nav className="nav" aria-label="Main navigation" id="site-primary-nav">
             <Link
@@ -109,6 +78,16 @@ const Header = () => {
                 <LongstakeBrandMark variant="header" />
               </div>
             </Link>
+            <a
+              href="tel:+14378780203"
+              className="nav-cta-mobile"
+              aria-label="Call Longstake at +1 437 878 0203"
+            >
+              <svg className="nav-cta-mobile__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
+              </svg>
+              <span className="nav-cta-mobile__num">+1 (437) 878-0203</span>
+            </a>
             <button
               type="button"
               className={`nav-mobile-toggle ${mobileMenuOpen ? 'nav-mobile-toggle--open' : ''}`}
@@ -124,71 +103,22 @@ const Header = () => {
               </span>
             </button>
             <ul className={`nav-links${mobileMenuOpen ? ' nav-links--drawer-open' : ''}`} id="site-nav-drawer-links">
-            <li
-              className={`nav-links__item nav-dropdown${companyOpen ? ' nav-dropdown--open' : ''}`}
-              ref={companyRef}
-            >
-              <button
-                type="button"
-                className="nav-dropdown-trigger"
-                aria-expanded={companyOpen}
-                aria-haspopup="true"
-                aria-controls="company-submenu"
-                id="company-menu-button"
-                onClick={() => setCompanyOpen((o) => !o)}
-              >
-                Company
-                <span className="nav-dropdown-chevron" aria-hidden />
-              </button>
-              <ul className="nav-dropdown-menu" id="company-submenu" role="menu" aria-labelledby="company-menu-button">
-                <li role="none">
-                  <NavLink
-                    role="menuitem"
-                    to="/company-policy"
-                    className={({ isActive }) => `nav-dropdown-link${isActive ? ' active' : ''}`}
-                    onClick={() => {
-                      setCompanyOpen(false)
-                      setMobileMenuOpen(false)
-                    }}
-                  >
-                    Company Policy
-                  </NavLink>
-                </li>
-                <li role="none">
-                  <NavLink
-                    role="menuitem"
-                    to="/careers"
-                    className={({ isActive }) => `nav-dropdown-link${isActive ? ' active' : ''}`}
-                    onClick={() => {
-                      setCompanyOpen(false)
-                      setMobileMenuOpen(false)
-                    }}
-                  >
-                    Careers
-                  </NavLink>
-                </li>
-                <li role="none">
-                  <NavLink
-                    role="menuitem"
-                    to="/privacy-policy"
-                    className={({ isActive }) => `nav-dropdown-link${isActive ? ' active' : ''}`}
-                    onClick={() => {
-                      setCompanyOpen(false)
-                      setMobileMenuOpen(false)
-                    }}
-                  >
-                    Privacy Policy
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-links__item nav-links__item--cta">
-              <TalkToUsLink aria-label="Contact Longstake" onClick={() => setMobileMenuOpen(false)} />
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+              <li className="nav-links__item">
+                <NavLink
+                  to="/pricing"
+                  className={({ isActive }) => `nav-link-top${isActive ? ' nav-link-top--active' : ''}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Pricing
+                </NavLink>
+              </li>
+              <li className="nav-links__item nav-links__item--cta">
+                <TalkToUsLink aria-label="Contact Longstake" onClick={() => setMobileMenuOpen(false)} />
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
     </>
   )
 }

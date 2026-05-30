@@ -10,6 +10,7 @@ import { join } from 'node:path'
  * Keep in sync with src/App.jsx routes (except "/" and hash-only targets).
  */
 const SPA_ROUTE_SEGMENTS = [
+  'pricing',
   'careers',
   'privacy-policy',
   'company-policy',

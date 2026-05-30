@@ -27,39 +27,9 @@
   align-items: center;
 }
 
-/* Mobile-only quick contact strip (so phone users don't scroll to the footer) */
-.header-contactbar {
+/* "Talk to us" shown directly in the bar on phones (hidden on desktop, where it lives in the nav) */
+.nav-cta-mobile {
   display: none;
-}
-
-.header-contactbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 18px;
-  padding: 7px 0;
-}
-
-.header-contactbar__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  color: var(--body);
-  font: 500 12.5px/1 'Geist', sans-serif;
-  white-space: nowrap;
-}
-
-.header-contactbar__link:hover,
-.header-contactbar__link:active {
-  color: var(--blue);
-}
-
-.header-contactbar__icon {
-  font-size: 13px;
-  line-height: 1;
-  color: var(--blue);
 }
 
 .nav {
@@ -139,6 +109,22 @@
 
 .nav-links .nav-route--wordmark.nav-route--active::after {
   background: var(--blue);
+}
+
+.nav-link-top {
+  text-decoration: none;
+  color: var(--body);
+  font: 500 14px/1 'Geist', sans-serif;
+  transition: color 0.15s;
+}
+
+.nav-link-top:hover {
+  color: var(--ink);
+}
+
+.nav-link-top--active {
+  color: var(--blue);
+  font-weight: 600;
 }
 
 .nav-links a:not(.btn-primary):not(.header-talk-btn):hover {
@@ -366,12 +352,6 @@
 }
 
 @media (max-width: 768px) {
-  .header-contactbar {
-    display: block;
-    background: var(--soft);
-    border-bottom: 1px solid var(--hair);
-  }
-
   .nav-mobile-backdrop {
     display: block;
     position: fixed;
@@ -395,9 +375,9 @@
 
   .nav {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     align-items: center;
-    column-gap: 0.75rem;
+    column-gap: 0.6rem;
     padding: 14px 0;
     row-gap: 0;
   }
@@ -409,11 +389,45 @@
     align-self: center;
   }
 
+  .nav-cta-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    box-sizing: border-box;
+    height: calc(var(--header-talk-block-height) + 10px);
+    max-height: 3.15rem;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg, #3f83f8 0%, var(--blue) 45%, var(--blue-700) 100%);
+    color: #f8fafc;
+    font: 600 13px/1 'Geist', sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow:
+      0 1px 3px rgba(15, 23, 42, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+
+  .nav-cta-mobile:active {
+    transform: translateY(1px);
+  }
+
+  .nav-cta-mobile__icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
   .nav-mobile-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1;
     box-sizing: border-box;
     width: 2.75rem;
@@ -478,11 +492,7 @@
   }
 
   .nav-links__item--cta {
-    padding-top: 0.85rem;
-    padding-bottom: 0.35rem;
-    border-bottom: none;
-    width: 100%;
-    box-sizing: border-box;
+    display: none;
   }
 
   .nav-dropdown {
@@ -505,6 +515,16 @@
     right: 2px;
     bottom: 10px;
     height: 2px;
+  }
+
+  .nav-link-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem 0;
+    min-height: 2.85rem;
+    color: var(--ink);
   }
 
   .nav-dropdown-trigger {

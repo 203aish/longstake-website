@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToHash from './ScrollToHash'
 import HomePage from './pages/HomePage'
+import PricingPage from './pages/PricingPage'
 import CareersPage from './pages/CareersPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import CompanyPolicyPage from './pages/CompanyPolicyPage'
@@ -24,6 +25,8 @@ function App() {
             <Route path="/stakenex/" element={<Navigate to="/" replace />} />
             <Route path="/stakeflow" element={<Navigate to="/" replace />} />
             <Route path="/stakeflow/" element={<Navigate to="/" replace />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/pricing/" element={<PricingPage />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/careers/" element={<CareersPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
