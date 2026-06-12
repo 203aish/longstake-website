@@ -6,4 +6,7 @@ export const PHONE_DISPLAY = '+1 (437) 878-0203'
 export const PHONE_TEL = `tel:+${PHONE_E164}`
 
 /** WhatsApp Business chat link — opens Longstake on WhatsApp */
-export const WHATSAPP_URL = 'https://wa.me/message/VYOSEGFHZ6B6K1'
+export const WHATSAPP_PREFILL =
+  'Hi, I have software requirements please reach out to me. Regards'
+
+export const WHATSAPP_URL = `https://wa.me/message/VYOSEGFHZ6B6K1?text=${encodeURIComponent(WHATSAPP_PREFILL)}`
