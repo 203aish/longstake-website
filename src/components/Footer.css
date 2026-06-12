@@ -103,6 +103,24 @@
   text-underline-offset: 3px;
 }
 
+.footer-site-contact-link--whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-site-contact-link--whatsapp:hover,
+.footer-site-contact-link--whatsapp:focus-visible {
+  color: #128c7e;
+}
+
+.footer-site-contact-link__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #25d366;
+}
+
 .footer-site-email-list {
   list-style: none;
   margin: 0;

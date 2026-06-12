@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { LongstakeBrandMark } from './BrandWordmark'
 import { TalkToUsLink } from './TalkToUsLink'
+import { PHONE_DISPLAY, PHONE_TEL } from '../constants/contact'
 import './Header.css'
 
 const Header = () => {
@@ -79,14 +80,14 @@ const Header = () => {
               </div>
             </Link>
             <a
-              href="tel:+14378780203"
+              href={PHONE_TEL}
               className="nav-cta-mobile"
-              aria-label="Call Longstake at +1 437 878 0203"
+              aria-label={`Call Longstake at ${PHONE_DISPLAY}`}
             >
               <svg className="nav-cta-mobile__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
               </svg>
-              <span className="nav-cta-mobile__num">+1 (437) 878-0203</span>
+              <span className="nav-cta-mobile__num">{PHONE_DISPLAY}</span>
             </a>
             <button
               type="button"

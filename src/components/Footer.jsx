@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FOOTER_CONTACT_ID } from './TalkToUsLink'
+import { WhatsAppIcon } from './WhatsAppIcon'
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from '../constants/contact'
 import './Footer.css'
 
 const EMAILS = ['layla@longstake.ca']
@@ -40,8 +42,20 @@ const Footer = () => {
             <div className="footer-site-contact">
               <div className="footer-site-contact-row">
                 <span className="footer-site-meta">Phone</span>
-                <a href="tel:+14378780203" className="footer-site-contact-link">
-                  +1 (437) 878-0203
+                <a href={PHONE_TEL} className="footer-site-contact-link">
+                  {PHONE_DISPLAY}
+                </a>
+              </div>
+              <div className="footer-site-contact-row">
+                <span className="footer-site-meta">WhatsApp</span>
+                <a
+                  href={WHATSAPP_URL}
+                  className="footer-site-contact-link footer-site-contact-link--whatsapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <WhatsAppIcon className="footer-site-contact-link__icon" />
+                  Message us on WhatsApp
                 </a>
               </div>
               <div className="footer-site-contact-row footer-site-contact-row--stack">

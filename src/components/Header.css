@@ -27,7 +27,7 @@
   align-items: center;
 }
 
-/* "Talk to us" shown directly in the bar on phones (hidden on desktop, where it lives in the nav) */
+/* Phone shown in the bar on phones (hidden on desktop, where Talk to us lives in the nav) */
 .nav-cta-mobile {
   display: none;
 }

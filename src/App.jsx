@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import SEO from './components/SEO'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { WhatsAppFloat } from './components/WhatsAppFloat'
 import ScrollToHash from './ScrollToHash'
 import HomePage from './pages/HomePage'
 import PricingPage from './pages/PricingPage'
@@ -38,6 +39,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <WhatsAppFloat />
       </div>
     </Router>
   )
