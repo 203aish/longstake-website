@@ -1,34 +1,63 @@
 /**
- * Longstake design tokens — aligned with designer “Design Tokens & Style Reference”.
- * Canonical names (--iron, --blue, …) match that document’s :root.
+ * Longstake design tokens — dark, modern agency theme.
+ * The site is dark by default (no light/dark split) to match the brand redesign.
  */
 :root {
-  --iron: #475569;
-  --blue: #2563eb;
-  --blue-700: #1d4ed8;
-  --ink: #0f172a;
-  --body: #475569;
-  --muted: #64748b;
-  --hair: #e2e8f0;
-  --soft: #f1f5f9;
-  --paper: #ffffff;
-  --page: #fafaf9;
-  /* Primary buttons / CTAs on saturated blue — always light ink */
-  --on-brand-primary: #ffffff;
-}
+  /* Surfaces */
+  --bg: #07080f;
+  --bg-2: #0b0d18;
+  --surface: #11131f;
+  --surface-2: #161829;
+  --surface-3: #1c1f30;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
 
-/* OS dark — keeps one system; components use token names (no per-file dark copies). */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --iron: #94a3b8;
-    --blue: #60a5fa;
-    --blue-700: #3b82f6;
-    --ink: #f1f5f9;
-    --body: #cbd5e1;
-    --muted: #94a3b8;
-    --hair: #334155;
-    --soft: #1e293b;
-    --paper: #1e293b;
-    --page: #0f172a;
-  }
+  /* Text */
+  --text: #f2f4fb;
+  --text-soft: #c2c7d6;
+  --muted-2: #8b91a7;
+
+  /* Brand accents */
+  --violet: #7c5cff;
+  --violet-600: #6d4df0;
+  --indigo: #4f46e5;
+  --blue-accent: #3b82f6;
+  --teal: #14b8a6;
+  --cyan: #22d3ee;
+  --amber: #f5b301;
+  --gold: #f7c948;
+  --pink: #ec4899;
+  --rose: #f43f5e;
+  --green: #22c55e;
+
+  /* Default page accent (overridden per page via --accent / --accent-2) */
+  --accent: #7c5cff;
+  --accent-2: #4f46e5;
+  --accent-soft: rgba(124, 92, 255, 0.14);
+
+  /* Legacy token names kept so existing components still resolve on dark */
+  --iron: #aab2c5;
+  --blue: #6d8bff;
+  --blue-700: #5a78ff;
+  --ink: #f2f4fb;
+  --body: #c2c7d6;
+  --muted: #8b91a7;
+  --hair: rgba(255, 255, 255, 0.08);
+  --soft: #161829;
+  --paper: #11131f;
+  --page: #07080f;
+  --on-brand-primary: #ffffff;
+
+  /* Gradients */
+  --grad-violet: linear-gradient(135deg, #8b5cff 0%, #4f46e5 100%);
+  --grad-teal: linear-gradient(135deg, #2dd4bf 0%, #0ea5e9 100%);
+  --grad-amber: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  --grad-pink: linear-gradient(135deg, #f472b6 0%, #db2777 100%);
+
+  /* Radii + shadow */
+  --radius: 18px;
+  --radius-sm: 12px;
+  --radius-lg: 26px;
+  --shadow-card: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 20px 60px rgba(124, 92, 255, 0.28);
 }

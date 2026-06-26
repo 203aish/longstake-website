@@ -16,7 +16,7 @@ const SEO = () => {
         name: 'Longstake',
         alternateName: ['Longstake Toronto', 'Longstake web design', 'longstake.ca'],
         description:
-          'Longstake is a Toronto studio for websites, mobile and web apps, managed Google and Meta ads, Google review management, and Facebook/Instagram/LinkedIn setup—monthly plans from $9.9/mo.',
+          'Longstake is a Toronto studio for websites, mobile and web apps, managed Google and Meta ads, Google review management, and Facebook/Instagram/LinkedIn setup—monthly plans from $9.99/mo.',
         publisher: { '@id': ORG_ID },
         inLanguage: ['en-CA', 'en-US'],
         copyrightHolder: { '@id': ORG_ID },
@@ -64,11 +64,13 @@ const SEO = () => {
         ],
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Toronto',
+          addressLocality: 'Scarborough',
           addressRegion: 'ON',
+          postalCode: 'M1P 4K1',
           addressCountry: 'CA',
         },
         areaServed: [
+          { '@type': 'City', name: 'Scarborough' },
           { '@type': 'City', name: 'Toronto' },
           { '@type': 'AdministrativeArea', name: 'Greater Toronto Area' },
           { '@type': 'AdministrativeArea', name: 'Ontario' },
@@ -97,14 +99,15 @@ const SEO = () => {
         },
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Toronto',
+          addressLocality: 'Scarborough',
           addressRegion: 'ON',
+          postalCode: 'M1P 4K1',
           addressCountry: 'CA',
         },
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 43.6532,
-          longitude: -79.3832,
+          latitude: 43.7560,
+          longitude: -79.2680,
         },
         serviceType: [
           'Web Design and Website Development',
@@ -118,6 +121,7 @@ const SEO = () => {
           'Online Reputation Management',
         ],
         areaServed: [
+          { '@type': 'City', name: 'Scarborough' },
           { '@type': 'City', name: 'Toronto' },
           { '@type': 'AdministrativeArea', name: 'Greater Toronto Area' },
           { '@type': 'AdministrativeArea', name: 'Ontario' },
@@ -126,7 +130,7 @@ const SEO = () => {
         offers: {
           '@type': 'Offer',
           description:
-            'Monthly plans from $9.9/mo for websites, managed ads, reviews, and apps. See https://longstake.ca/pricing',
+            'Monthly plans from $9.99/mo for websites, managed ads, reviews, and apps. See https://longstake.ca/pricing',
           url: `${SITE_URL}/pricing`,
         },
       },
@@ -136,6 +140,7 @@ const SEO = () => {
         serviceType: 'Web Design and Digital Marketing',
         provider: { '@id': ORG_ID },
         areaServed: [
+          { '@type': 'City', name: 'Scarborough' },
           { '@type': 'City', name: 'Toronto' },
           { '@type': 'AdministrativeArea', name: 'Greater Toronto Area' },
           { '@type': 'Place', name: 'Worldwide' },
@@ -145,7 +150,7 @@ const SEO = () => {
         offers: {
           '@type': 'Offer',
           description:
-            'Starter from $9.9/mo; Growth, Scale, Pro, and App plans for ads management and apps.',
+            'Silver from $9.99/mo; Gold and Platinum plans for managed ads, reviews, and apps.',
           url: `${SITE_URL}/pricing`,
         },
       },

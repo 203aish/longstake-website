@@ -1,71 +1,78 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { useReveal } from '../hooks/useReveal'
+import { useRegion } from '../hooks/useRegion'
 import { PAGE_META } from '../seo/siteMeta'
+import { CtaBanner } from '../components/Sections'
+import { IconCheckShield, IconBolt, IconClock, IconTrendUp } from '../components/icons'
 import './PricingPage.css'
 
+/** Plan copy (region-independent). Prices live in REGIONS below. */
 const PLANS = [
   {
-    name: 'Starter',
-    monthly: '$9.9',
-    monthlyNote: '+ HST',
-    setup: 'Free setup',
-    summary: 'A static site that quietly does the basics.',
-    features: [
-      'Unlimited-page static website',
-      'Automated Google review responses + monthly report',
-      'Social links (Facebook, Instagram, LinkedIn)',
-      'WhatsApp chat + click-to-call from the site',
-    ],
+    name: 'Essential',
+    blurb: 'Perfect for startups and small businesses.',
+    features: ['Up to 5 pages', 'Basic SEO', 'Contact form', 'Email support'],
+    cta: 'Get Started',
   },
   {
-    name: 'Growth',
-    monthly: '$29.9',
-    setup: 'Free setup',
-    summary: 'A dynamic site with one ad channel managed.',
-    features: [
-      'Website + ads management (Google or Meta)',
-      'Review management + analytics',
-      'Ads management for you',
-    ],
+    name: 'Core',
+    blurb: 'Ideal for growing businesses.',
+    features: ['Up to 15 pages', 'Advanced SEO', 'Blog setup', 'Speed optimization', 'Priority support'],
+    cta: 'Get Started',
   },
   {
-    name: 'Scale',
-    monthly: '$39.9',
-    setup: 'Free setup',
-    summary: 'Both ad channels and advanced analytics.',
+    name: 'Plus',
     featured: true,
-    features: [
-      'Website + ads management (Google + Meta)',
-      'Reviews + advanced analytics',
-      'Ads management for you',
-    ],
+    blurb: 'Best for established businesses.',
+    features: ['Up to 30 pages', 'Custom integrations', 'Analytics dashboard', 'Marketing automation', 'Priority support (24/7)'],
+    cta: 'Get Started',
   },
   {
-    name: 'Pro',
-    monthly: '$59.9',
-    setup: '$99 setup',
-    summary: 'Everything in Scale, with priority service.',
-    features: [
-      'Everything in Scale',
-      '48-hour support SLA',
-      'Dedicated account manager',
-    ],
-  },
-  {
-    name: 'App',
-    monthly: '$79.9',
-    setup: '$199 setup',
-    summary: 'A mobile or web app with full growth support.',
-    features: [
-      'Mobile or web app',
-      'Ads management (Google + Meta) + reviews',
-      'Priority support',
-      'Full scope agreed in writing before work begins',
-    ],
+    name: 'Prime',
+    blurb: 'A complete solution for scaling teams.',
+    features: ['Unlimited pages', 'Dedicated team', 'Custom features', 'SLA & reporting'],
+    cta: 'Get Started',
   },
 ]
 
-const priceValue = (monthly) => parseFloat(String(monthly).replace(/[^0-9.]/g, ''))
+/** Per-region pricing. `monthly` and `annual` are the headline figures. */
+const REGIONS = {
+  CA: {
+    label: 'Canada',
+    flag: '🇨🇦',
+    currency: 'CAD',
+    taxNote: 'Prices in CAD — plus applicable HST',
+    prices: {
+      Essential: { monthly: 9.99, annual: 99 },
+      Core: { monthly: 19.99, annual: 199 },
+      Plus: { monthly: 29.99, annual: 299 },
+      Prime: { monthly: 49.99, annual: 499 },
+    },
+  },
+  US: {
+    label: 'United States',
+    flag: '🇺🇸',
+    currency: 'USD',
+    taxNote: 'Prices in USD',
+    prices: {
+      Essential: { monthly: 14.99, annual: 149 },
+      Core: { monthly: 29.99, annual: 299 },
+      Plus: { monthly: 39.99, annual: 399 },
+      Prime: { monthly: 69.99, annual: 699 },
+    },
+  },
+}
+
+const GUARANTEES = [
+  { icon: IconCheckShield, title: 'Dedicated team', text: 'Personal Touch' },
+  { icon: IconBolt, title: 'No Setup Fees', text: 'Get started for less' },
+  { icon: IconClock, title: '24/7 Support', text: 'We’re always here' },
+  { icon: IconTrendUp, title: 'Results Driven', text: 'Built to grow you' },
+]
+
+const money = (n) => `$${n.toFixed(2)}`
 
 const PRICING_STRUCTURED_DATA = {
   '@context': 'https://schema.org',
@@ -76,9 +83,10 @@ const PRICING_STRUCTURED_DATA = {
       serviceType: 'Web Design, App Development, Google Ads Management, Meta Ads Management, Review Management',
       provider: { '@type': 'Organization', name: 'Longstake', url: 'https://longstake.ca' },
       areaServed: [
-        { '@type': 'City', name: 'Toronto', containedInPlace: { '@type': 'AdministrativeArea', name: 'Ontario' } },
+        { '@type': 'City', name: 'Toronto' },
         { '@type': 'Place', name: 'Greater Toronto Area' },
-        { '@type': 'Place', name: 'Worldwide' },
+        { '@type': 'Country', name: 'Canada' },
+        { '@type': 'Country', name: 'United States' },
       ],
       url: 'https://longstake.ca/pricing',
       hasOfferCatalog: {
@@ -87,16 +95,9 @@ const PRICING_STRUCTURED_DATA = {
         itemListElement: PLANS.map((plan) => ({
           '@type': 'Offer',
           name: `${plan.name} plan`,
-          description: plan.summary,
-          price: priceValue(plan.monthly),
+          description: plan.blurb,
+          price: REGIONS.CA.prices[plan.name].monthly,
           priceCurrency: 'CAD',
-          priceSpecification: {
-            '@type': 'UnitPriceSpecification',
-            price: priceValue(plan.monthly),
-            priceCurrency: 'CAD',
-            unitText: 'MONTH',
-            billingIncrement: 1,
-          },
           category: 'Subscription',
           url: 'https://longstake.ca/pricing',
         })),
@@ -105,208 +106,127 @@ const PRICING_STRUCTURED_DATA = {
   ],
 }
 
-function PhoneGatePopup({ onClose, onSubmit }) {
-  const inputRef = useRef(null)
-  const [phone, setPhone] = useState('')
-
-  useEffect(() => {
-    inputRef.current?.focus()
-  }, [])
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (phone.trim().length < 7) {
-      inputRef.current?.focus()
-      return
-    }
-    onSubmit(phone.trim())
-  }
-
-  return (
-    <div
-      className="pricing-modal-overlay"
-      role="presentation"
-      onMouseDown={(e) => {
-        if (e.target === e.currentTarget) onClose()
-      }}
-    >
-      <div
-        className="pricing-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="pricing-modal-title"
-      >
-        <button
-          type="button"
-          className="pricing-modal-close"
-          aria-label="Close"
-          onClick={onClose}
-        >
-          &times;
-        </button>
-        <h2 id="pricing-modal-title" className="pricing-modal-title">
-          Enter Phone for Pricing
-        </h2>
-        <form className="pricing-modal-form" onSubmit={handleSubmit}>
-          <label className="pricing-modal-label" htmlFor="pricing-phone">
-            Phone Number
-          </label>
-          <input
-            ref={inputRef}
-            id="pricing-phone"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel"
-            className="pricing-modal-input"
-            placeholder="Enter your phone number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-          <button type="submit" className="pricing-modal-submit">
-            Get Started
-          </button>
-        </form>
-      </div>
-    </div>
-  )
-}
-
 const PricingPage = () => {
   usePageMeta({ ...PAGE_META.pricing, path: '/pricing' })
-  const [showGate, setShowGate] = useState(true)
-  const [submitted, setSubmitted] = useState(false)
-  const [demoPhone, setDemoPhone] = useState('')
-  const [demoSubmitted, setDemoSubmitted] = useState(false)
+  useReveal([])
+  const [annual, setAnnual] = useState(false)
+  const [region] = useRegion()
 
-  const handleDemoSubmit = (e) => {
-    e.preventDefault()
-    if (demoPhone.trim().length < 7) return
-    setDemoSubmitted(true)
-  }
+  const r = REGIONS[region] || REGIONS.CA
 
   return (
-    <div className="pricing-page">
+    <div className="pricing page-accent--amber">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PRICING_STRUCTURED_DATA) }}
       />
-      <section className="pricing-hero section">
-        <div className="container">
-          <p className="pricing-eyebrow">Pricing</p>
-          <h1 className="pricing-title">Find a plan that’s right for you</h1>
-          {submitted ? (
-            <p className="pricing-thanks" role="status">
-              Thanks—we’ll reach out shortly. Browse the plans below in the meantime.
-            </p>
-          ) : null}
+
+      <section className="section pricing-hero hero-glow">
+        <div className="container pricing-hero__inner" data-reveal>
+          <span className="eyebrow">Pricing plans</span>
+          <h1 className="h-display pricing-hero__title">
+            Simple Pricing. <span className="text-grad">Powerful Results.</span>
+          </h1>
+          <p className="lead pricing-hero__lead">
+            Choose the perfect plan that fits your needs and scales with your business.
+          </p>
+
+          <div className="pricing-controls">
+            <div className="pricing-toggle" role="group" aria-label="Billing period">
+              <button
+                type="button"
+                className={`pricing-toggle__opt${!annual ? ' is-active' : ''}`}
+                onClick={() => setAnnual(false)}
+              >
+                Monthly
+              </button>
+              <button
+                type="button"
+                className={`pricing-toggle__opt${annual ? ' is-active' : ''}`}
+                onClick={() => setAnnual(true)}
+              >
+                Annual <span className="pricing-toggle__save">2 months free</span>
+              </button>
+            </div>
+          </div>
+
+          <p className="pricing-tax-note">{r.taxNote}</p>
         </div>
       </section>
 
-      <section className="pricing-section">
+      <section className="pricing-cards-section">
         <div className="container">
           <div className="pricing-grid">
-            {PLANS.map((plan) => (
-              <article
-                key={plan.name}
-                className={`pricing-card${plan.featured ? ' pricing-card--featured' : ''}`}
-              >
-                {plan.featured ? <span className="pricing-card-badge">Most popular</span> : null}
-                <h2 className="pricing-card-name">{plan.name}</h2>
-                <p className="pricing-card-price">
-                  <span className="pricing-card-amount">{plan.monthly}</span>
-                  <span className="pricing-card-per">/mo</span>
-                  {plan.monthlyNote ? (
-                    <span className="pricing-card-note"> {plan.monthlyNote}</span>
-                  ) : null}
-                </p>
-                <p className="pricing-card-setup">{plan.setup}</p>
-                <p className="pricing-card-summary">{plan.summary}</p>
-                <ul className="pricing-card-features">
-                  {plan.features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-                <button
-                  type="button"
-                  className="pricing-card-cta"
-                  onClick={() => setShowGate(true)}
+            {PLANS.map((plan) => {
+              const price = r.prices[plan.name]
+              const perMonth = annual ? price.annual / 12 : price.monthly
+              return (
+                <article
+                  key={plan.name}
+                  className={`card pricing-card${plan.featured ? ' pricing-card--featured' : ''}`}
+                  data-reveal
                 >
-                  Buy Now
-                </button>
-              </article>
-            ))}
+                  {plan.featured ? <span className="pricing-card__badge">Most Popular</span> : null}
+                  <h2 className="pricing-card__name">{plan.name}</h2>
+                  <p className="pricing-card__blurb">{plan.blurb}</p>
+                  <div className="pricing-card__price">
+                    <span className="pricing-card__amount">{money(perMonth)}</span>
+                    <span className="pricing-card__per">/mo</span>
+                  </div>
+                  <p className="pricing-card__sub">
+                    {annual
+                      ? `billed annually at ${money(price.annual)} ${r.currency}`
+                      : `${r.currency} · billed monthly`}
+                  </p>
+                  <Link
+                    to="/contact"
+                    className={`btn ${plan.featured ? 'btn--grad' : 'btn--ghost'} btn--block pricing-card__cta`}
+                  >
+                    {plan.cta}
+                  </Link>
+                  <ul className="pricing-card__features">
+                    {plan.features.map((f) => (
+                      <li key={f}>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="m5 12 5 5L20 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              )
+            })}
           </div>
-          <p className="pricing-footnote">
-            Prices are in CAD and exclude applicable taxes. Ad spend (Google / Meta) is paid directly by
-            the client. App plan scope is confirmed in writing before work begins.
+
+          <p className="pricing-note">
+            {region === 'CA'
+              ? 'Prices shown in CAD, plus applicable HST.'
+              : 'Prices shown in USD.'}{' '}
+            Need something different?{' '}
+            <Link to="/contact" className="pricing-note__link">Let’s talk</Link>.
           </p>
+
+          <div className="pricing-guarantees">
+            {GUARANTEES.map((g) => {
+              const Icon = g.icon
+              return (
+                <div className="pricing-guarantee" key={g.title} data-reveal>
+                  <span className="icon-chip" aria-hidden><Icon /></span>
+                  <div>
+                    <strong>{g.title}</strong>
+                    <span>{g.text}</span>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="pricing-demo">
-        <div className="container pricing-demo-inner">
-          <span className="pricing-demo-icon" aria-hidden>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="4" width="18" height="17" rx="2" />
-              <path d="M16 2v4M8 2v4M3 10h18" />
-            </svg>
-          </span>
-          <h2 className="pricing-demo-title">Let us help you schedule a free demo.</h2>
-
-          {demoSubmitted ? (
-            <p className="pricing-demo-thanks" role="status">
-              Thanks—we’ll call to set up your demo shortly.
-            </p>
-          ) : (
-            <form className="pricing-demo-form" onSubmit={handleDemoSubmit}>
-              <input
-                type="tel"
-                inputMode="tel"
-                autoComplete="tel"
-                className="pricing-demo-input"
-                placeholder="Enter your phone number"
-                value={demoPhone}
-                onChange={(e) => setDemoPhone(e.target.value)}
-                aria-label="Phone number for a free demo"
-              />
-              <button type="submit" className="pricing-demo-submit">
-                Schedule a Demo
-                <span aria-hidden className="pricing-demo-submit-arrow">→</span>
-              </button>
-            </form>
-          )}
-
-          <p className="pricing-demo-sub">Not sure which plan is right for you?</p>
-          <a href="tel:+14378780203" className="pricing-demo-call">
-            <svg className="pricing-demo-call-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-              <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
-            </svg>
-            Call Now
-          </a>
-        </div>
-      </section>
-
-      {showGate ? (
-        <PhoneGatePopup
-          onClose={() => setShowGate(false)}
-          onSubmit={() => {
-            setShowGate(false)
-            setSubmitted(true)
-          }}
-        />
-      ) : null}
+      <CtaBanner
+        title="Still have questions?"
+        text="Book a free consultation and we’ll help you choose the plan that fits your goals and budget."
+        buttonLabel="Book a Free Consultation"
+      />
     </div>
   )
 }

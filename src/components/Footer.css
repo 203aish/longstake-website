@@ -1,164 +1,265 @@
-.footer-site {
-  /* Distinct “footer slab”: soft slate band with a faint blue dusk at the bottom */
-  background: linear-gradient(
-    180deg,
-    var(--soft) 0%,
-    color-mix(in srgb, var(--soft) 88%, var(--blue) 12%) 48%,
-    color-mix(in srgb, var(--page) 92%, var(--blue) 8%) 100%
-  );
-  border-top: 1px solid color-mix(in srgb, var(--hair) 75%, var(--blue) 25%);
-  color: var(--ink);
-  padding: clamp(48px, 6vw, 64px) 0 32px;
+.ft {
+  position: relative;
+  margin-top: clamp(56px, 8vw, 110px);
+  padding: clamp(40px, 5vw, 64px) 0 28px;
+  border-top: 1px solid var(--border);
+  background:
+    radial-gradient(700px 300px at 50% 0%, rgba(124, 92, 255, 0.1), transparent 70%),
+    var(--bg-2);
 }
 
-.footer-site-grid {
-  display: grid;
-  grid-template-columns: minmax(160px, 1fr) minmax(220px, 1.2fr);
-  gap: 3rem 4rem;
-  align-items: start;
-  max-width: 860px;
-  margin: 0 auto;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--hair), var(--blue) 22%);
-}
-
-.footer-site-heading {
-  font: 600 11px/1 'JetBrains Mono', monospace;
-  color: var(--ink);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin: 0 0 16px;
-}
-
-.footer-site-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Newsletter band */
+.ft-news {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footer-site-link {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--body);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-
-.footer-site-link:hover,
-.footer-site-link:focus-visible {
-  color: var(--blue);
-}
-
-.footer-site-col--company {
-  text-align: left;
-}
-
-#site-contact {
-  scroll-margin-top: 5.5rem;
-}
-
-.footer-site-col--contact {
-  text-align: left;
-}
-
-.footer-site-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.footer-site-contact-row {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.footer-site-contact-row--stack {
-  gap: 6px;
-}
-
-.footer-site-meta {
-  font: 500 11px/1 'JetBrains Mono', monospace;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.footer-site-contact-link {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--blue);
-  text-decoration: none;
-  transition: color 0.15s;
-  width: fit-content;
-}
-
-.footer-site-contact-link:hover,
-.footer-site-contact-link:focus-visible {
-  color: var(--blue-700);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.footer-site-contact-link--whatsapp {
-  display: inline-flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: clamp(26px, 3.5vw, 40px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: linear-gradient(120deg, rgba(124, 92, 255, 0.16), rgba(79, 70, 229, 0.08));
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.ft-news__title {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.ft-news__sub {
+  margin-top: 6px;
+  color: var(--text-soft);
+  font-size: 15px;
+}
+
+.ft-news__form {
+  display: flex;
+  gap: 10px;
+  flex: 1 1 320px;
+  max-width: 440px;
+}
+
+.ft-news__input {
+  flex: 1;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text);
+  font: 400 15px/1.2 'Geist', sans-serif;
+}
+
+.ft-news__input::placeholder {
+  color: var(--muted-2);
+}
+
+.ft-news__input:focus {
+  outline: none;
+  border-color: var(--violet);
+}
+
+.ft-news__btn {
+  flex-shrink: 0;
   gap: 8px;
 }
 
-.footer-site-contact-link--whatsapp:hover,
-.footer-site-contact-link--whatsapp:focus-visible {
-  color: #128c7e;
-}
-
-.footer-site-contact-link__icon {
+.ft-news__btn svg {
   width: 18px;
   height: 18px;
-  flex-shrink: 0;
-  color: #25d366;
 }
 
-.footer-site-email-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.ft-news__thanks {
+  flex: 1 1 320px;
+  max-width: 440px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* Grid */
+.ft-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ft-brand__logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ft-brand__logo .brand-wordmark--header {
+  height: 24px;
+  width: auto;
+}
+
+.ft-brand__desc {
+  margin: 18px 0 16px;
+  color: var(--text-soft);
+  font-size: 14.5px;
+  line-height: 1.7;
+  max-width: 340px;
+}
+
+.ft-contact {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-bottom: 18px;
 }
 
-.footer-site-copy {
-  text-align: center;
-  margin: 1.5rem 0 0;
-  font: 500 12px/1 'JetBrains Mono', monospace;
-  color: var(--muted);
+.ft-contact__link {
+  color: var(--text-soft);
+  font-size: 14.5px;
+  transition: color 0.15s ease;
+  width: fit-content;
+}
+
+.ft-contact__link:hover {
+  color: var(--violet);
+}
+
+.ft-social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.ft-social__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.ft-social__btn:hover {
+  transform: translateY(-2px);
+}
+
+.ft-social__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.ft-social__btn--whatsapp {
+  color: #25d366;
+}
+
+.ft-social__btn--whatsapp:hover {
+  border-color: rgba(37, 211, 102, 0.45);
+  background: rgba(37, 211, 102, 0.12);
+  box-shadow: 0 0 0 1px rgba(37, 211, 102, 0.12), 0 10px 24px -14px rgba(37, 211, 102, 0.75);
+}
+
+.ft-social__btn--facebook {
+  color: #1877f2;
+}
+
+.ft-social__btn--facebook:hover {
+  border-color: rgba(24, 119, 242, 0.45);
+  background: rgba(24, 119, 242, 0.12);
+  box-shadow: 0 0 0 1px rgba(24, 119, 242, 0.12), 0 10px 24px -14px rgba(24, 119, 242, 0.75);
+}
+
+.ft-social__btn--instagram {
+  color: #e1306c;
+}
+
+.ft-social__btn--instagram:hover {
+  border-color: rgba(225, 48, 108, 0.45);
+  background: rgba(225, 48, 108, 0.12);
+  box-shadow: 0 0 0 1px rgba(225, 48, 108, 0.12), 0 10px 24px -14px rgba(225, 48, 108, 0.65);
+}
+
+.ft-social__btn--linkedin {
+  color: #0a66c2;
+}
+
+.ft-social__btn--linkedin:hover {
+  border-color: rgba(10, 102, 194, 0.45);
+  background: rgba(10, 102, 194, 0.12);
+  box-shadow: 0 0 0 1px rgba(10, 102, 194, 0.12), 0 10px 24px -14px rgba(10, 102, 194, 0.75);
+}
+
+.ft-col__title {
+  font: 600 13px/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 16px;
 }
 
-@media (max-width: 640px) {
-  .footer-site {
-    padding: 2.25rem 0 1.5rem;
+.ft-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.ft-col__link {
+  color: var(--text-soft);
+  font-size: 14.5px;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.ft-col__link:hover {
+  color: var(--violet);
+  padding-left: 3px;
+}
+
+/* Bottom bar */
+.ft-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  color: var(--muted-2);
+  font-size: 13.5px;
+}
+
+.ft-bottom__links {
+  display: flex;
+  gap: 22px;
+}
+
+.ft-bottom__links a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 860px) {
+  .ft-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
   }
 
-  .footer-site-grid {
+  .ft-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .ft-grid {
     grid-template-columns: 1fr;
-    gap: 2.25rem;
-    padding-bottom: 1.75rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-site-heading {
-    font-size: 10px;
   }
 
-  .footer-site-contact-link {
-    font-size: 0.9rem;
-    word-break: break-word;
-    max-width: 100%;
+  .ft-bottom {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

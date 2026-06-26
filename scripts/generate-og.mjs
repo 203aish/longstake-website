@@ -19,7 +19,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   <rect x="0" y="0" width="1200" height="8" fill="#ffffff" opacity="0.2"/>
   <text x="72" y="200" fill="#ffffff" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="76" font-weight="700">Longstake</text>
   <text x="72" y="278" fill="#e0e7ff" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="34" font-weight="600">Websites · Apps · Managed Google &amp; Meta Ads</text>
-  <text x="72" y="338" fill="#bfdbfe" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="500">Toronto &amp; GTA — monthly plans from $9.9/mo</text>
+  <text x="72" y="338" fill="#bfdbfe" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="500">Toronto &amp; GTA — monthly plans from $9.99/mo</text>
   <text x="72" y="520" fill="#93c5fd" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="500">longstake.ca</text>
 </svg>`
 

@@ -6,6 +6,9 @@ import Footer from './components/Footer'
 import { WhatsAppFloat } from './components/WhatsAppFloat'
 import ScrollToHash from './ScrollToHash'
 import HomePage from './pages/HomePage'
+import ServicesPage from './pages/ServicesPage'
+import AboutPage from './pages/AboutPage'
+import ContactPage from './pages/ContactPage'
 import PricingPage from './pages/PricingPage'
 import CareersPage from './pages/CareersPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
@@ -22,20 +25,23 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/stakenex" element={<Navigate to="/" replace />} />
-            <Route path="/stakenex/" element={<Navigate to="/" replace />} />
-            <Route path="/stakeflow" element={<Navigate to="/" replace />} />
-            <Route path="/stakeflow/" element={<Navigate to="/" replace />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/" element={<ServicesPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/about/" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact/" element={<ContactPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/pricing/" element={<PricingPage />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/careers/" element={<CareersPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/privacy-policy/" element={<PrivacyPolicyPage />} />
-            <Route path="/contact" element={<Navigate to="/#site-contact" replace />} />
-            <Route path="/contact/" element={<Navigate to="/#site-contact" replace />} />
             <Route path="/company-policy" element={<CompanyPolicyPage />} />
             <Route path="/company-policy/" element={<CompanyPolicyPage />} />
+            <Route path="/stakenex" element={<Navigate to="/" replace />} />
+            <Route path="/stakeflow" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <Footer />

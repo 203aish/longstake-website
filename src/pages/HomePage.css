@@ -1,381 +1,356 @@
-.home-page {
-  padding-top: 0;
-}
-
 /* ── Hero ── */
 .home-hero {
-  position: relative;
-  overflow: hidden;
-  /* Subtle dot-grid gives a "designed" feel */
-  background-color: var(--page);
-  background-image: radial-gradient(var(--hair) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
-  /* Fade dots out toward the bottom */
-  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  padding-top: clamp(40px, 6vw, 80px);
 }
 
-/* Blue glow top-right */
-.home-hero::before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 50%;
-  height: 90%;
-  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.09), transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.home-hero.section {
-  padding: clamp(72px, 11vw, 130px) 0 clamp(56px, 8vw, 96px);
-}
-
-.home-hero .container {
-  position: relative;
-  z-index: 1;
-}
-
-/* Kicker above the headline */
-.home-hero-kicker {
-  display: inline-flex;
+.home-hero__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
-  gap: 8px;
-  padding: 5px 12px;
-  background: var(--soft);
-  border-radius: 999px;
-  font: 500 11px/1 'JetBrains Mono', monospace;
-  color: var(--body);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 24px;
+  gap: clamp(36px, 5vw, 72px);
 }
 
-.home-hero-kicker::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+.home-hero__title {
+  margin: 22px 0 20px;
 }
 
-.home-hero-title {
-  font-size: clamp(36px, 5.5vw, 66px);
-  font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.035em;
-  color: var(--ink);
-  max-width: 760px;
-  margin-bottom: 20px;
+.home-hero__lead {
+  max-width: 540px;
 }
 
-.home-hero-title-em {
-  color: var(--blue);
-}
-
-.home-hero-lead {
-  font-size: clamp(16px, 1.5vw, 19px);
-  line-height: 1.6;
-  color: var(--body);
-  max-width: 560px;
-  margin-bottom: 0;
-}
-
-/* ── Hero CTA buttons ── */
-.home-hero-actions {
+.home-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
+  margin: 32px 0 24px;
 }
 
-/* Reset base — let btn-primary / btn-secondary handle color; only add layout */
-.home-link-btn {
-  text-decoration: none;
-  display: inline-flex;
+.home-hero__rating {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-/* Define btn-large so it applies visually */
-.btn-large {
-  padding: 13px 26px !important;
-  font-size: 15px !important;
-  border-radius: 8px !important;
-}
-
-/* Ensure secondary button border is clearly visible */
-.btn-secondary.home-link-btn {
-  border: 1.5px solid color-mix(in srgb, var(--body) 45%, transparent);
-  background: color-mix(in srgb, var(--paper) 88%, var(--page));
-  color: var(--ink);
-  font-weight: 500;
-}
-
-.btn-secondary.home-link-btn:hover {
-  border-color: var(--ink);
-  background: var(--paper);
-}
-
-/* ── Interior sections ── */
-.home-section {
-  padding: clamp(48px, 6vw, 80px) 0;
-}
-
-.home-section--alt {
-  background: var(--soft);
-  border-top: 1px solid var(--hair);
-  border-bottom: 1px solid var(--hair);
-}
-
-.home-narrow {
-  max-width: 760px;
-}
-
-.home-section-kicker {
-  font: 500 11px/1 'JetBrains Mono', monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--blue);
-  display: block;
-  margin-bottom: 12px;
-}
-
-.home-section-title {
-  font-size: clamp(26px, 3.5vw, 38px);
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.03em;
-  line-height: 1.12;
-  margin-bottom: 12px;
-}
-
-.home-section-intro {
-  color: var(--body);
-  font-size: 16.5px;
-  line-height: 1.6;
-  max-width: 580px;
-  margin: 0 0 2rem;
-}
-
-.home-prose p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--body);
-  margin-bottom: 1.1rem;
-  max-width: 68ch;
-}
-
-.home-prose p:last-child {
-  margin-bottom: 0;
-}
-
-/* ── Achievement cards — numbered with blue top accent ── */
-.home-achievement-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  counter-reset: achievement;
-}
-
-.home-achievement-card {
-  background: var(--paper);
-  border: 1px solid var(--hair);
-  border-radius: 14px;
-  padding: 28px 28px 24px;
-  border-top: 3px solid var(--blue);
-  counter-increment: achievement;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.home-achievement-card:hover {
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
-  transform: translateY(-2px);
-}
-
-.home-achievement-card::before {
-  content: '0' counter(achievement);
-  display: block;
-  font: 600 11px/1 'JetBrains Mono', monospace;
-  color: var(--blue);
-  letter-spacing: 0.12em;
-  margin-bottom: 14px;
-}
-
-.home-achievement-card h3 {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  margin-bottom: 8px;
-}
-
-.home-achievement-card p {
+  gap: 10px;
+  color: var(--text-soft);
   font-size: 14px;
-  line-height: 1.6;
-  color: var(--body);
-  margin: 0;
 }
 
-/* ── Practice cards ── */
-.home-practice-grid {
+.home-hero__stars {
+  display: inline-flex;
+  color: var(--amber);
+}
+
+.home-hero__stars svg {
+  width: 17px;
+  height: 17px;
+  fill: var(--amber);
+  stroke: var(--amber);
+}
+
+/* ── Hero visual: laptop dashboard + floating icons ── */
+.home-hero__visual {
+  position: relative;
+}
+
+.hero-stage {
+  position: relative;
+  padding: 34px clamp(26px, 5vw, 56px) 48px;
+}
+
+/* Laptop frame */
+.laptop {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  max-width: 440px;
+}
+
+.laptop__screen {
+  position: relative;
+  border-radius: 16px 16px 6px 6px;
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(165deg, var(--surface-2) 0%, var(--bg-2) 100%);
+  box-shadow: var(--shadow-card);
+  padding: 12px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.laptop__base {
+  width: 116%;
+  margin-left: -8%;
+  height: 14px;
+  border-radius: 0 0 16px 16px;
+  background: linear-gradient(180deg, var(--surface-3), var(--surface-2));
+  border: 1px solid var(--border-strong);
+  border-top: 0;
+  box-shadow: 0 22px 34px -20px rgba(0, 0, 0, 0.75);
+}
+
+/* Floating service cards inside laptop screen */
+.screen-inner {
+  position: relative;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(90% 70% at 30% 20%, color-mix(in srgb, var(--violet) 14%, transparent), transparent 55%),
+    radial-gradient(70% 60% at 80% 80%, color-mix(in srgb, var(--teal) 10%, transparent), transparent 50%),
+    rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.screen-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+  animation: screen-card-float 4.5s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+.screen-card__icon {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 0;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  color: var(--card-accent);
+  background: color-mix(in srgb, var(--card-accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 28%, transparent);
 }
 
-.home-practice-card {
-  background: var(--paper);
-  border: 1px solid var(--hair);
+.screen-card__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.screen-card strong {
+  display: block;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.screen-card small {
+  color: var(--muted-2);
+  font-size: 10.5px;
+}
+
+.screen-card--1 {
+  top: 14%;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.screen-card--2 {
+  top: 38%;
+  right: 6%;
+  animation-delay: 0.7s;
+}
+
+.screen-card--3 {
+  bottom: 12%;
+  left: 12%;
+  animation-delay: 1.3s;
+}
+
+@keyframes screen-card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-card { animation: none; }
+}
+
+/* Floating app tiles */
+.app-tile {
+  position: absolute;
+  z-index: 3;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
   border-radius: 16px;
-  padding: 36px 32px 32px;
+  color: var(--tile);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-card);
+  animation: tile-float 5.5s ease-in-out infinite;
+}
+
+.app-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--tile);
+  opacity: 0.14;
+}
+
+.app-tile svg {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.app-tile--1 { top: 8%; left: -1%; animation-delay: 0s; }
+.app-tile--2 { top: 1%; right: 7%; animation-delay: 0.6s; }
+.app-tile--3 { top: 40%; left: -4%; animation-delay: 1.2s; }
+.app-tile--4 { top: 32%; right: -3%; animation-delay: 0.9s; }
+.app-tile--5 { bottom: 12%; left: 4%; animation-delay: 1.7s; }
+.app-tile--6 { bottom: 4%; right: 4%; animation-delay: 0.3s; }
+.app-tile--7 { top: -5%; left: 46%; animation-delay: 2.2s; }
+
+@keyframes tile-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-tile { animation: none; }
+}
+
+/* ── Trusted by ── */
+.home-trusted {
+  padding: clamp(30px, 4vw, 48px) 0;
+  border-block: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.home-trusted__label {
+  text-align: center;
+  font: 600 12px/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 22px;
+}
+
+.home-trusted__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(28px, 6vw, 64px);
+}
+
+.home-trusted__logo {
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--muted-2);
+  opacity: 0.7;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.home-trusted__logo:hover {
+  opacity: 1;
+  color: var(--text);
+}
+
+/* ── Solutions ── */
+.home-solutions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.home-solution {
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 14px;
 }
 
-.home-practice-card:hover {
-  border-color: rgba(37, 99, 235, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+.home-solution__title {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text);
 }
 
-.home-practice-card h3 {
-  font-size: clamp(22px, 2.5vw, 28px);
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.025em;
-  margin-bottom: 2px;
-}
-
-.home-practice-tag {
-  font: 500 11px/1 'JetBrains Mono', monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--blue);
-  margin: 0;
-}
-
-.home-practice-card p:last-of-type {
-  flex: 1;
-  margin: 6px 0 0;
+.home-solution__body {
+  color: var(--text-soft);
   font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--body);
+  line-height: 1.65;
+  flex: 1;
 }
 
-.home-practice-link {
-  margin-top: 10px;
-  font: 500 13px/1 'Geist', sans-serif;
-  color: var(--blue);
-  text-decoration: none;
+.home-solution__link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: gap 0.15s;
+  gap: 7px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14.5px;
 }
 
-.home-practice-link:hover {
-  gap: 10px;
+.home-solution__link svg {
+  width: 17px;
+  height: 17px;
+  transition: transform 0.16s ease;
 }
 
-/* ── Dark "practices" section — the biggest visual lift ── */
-#practices {
-  background: var(--ink);
-  border-top: none;
-  border-bottom: none;
+.home-solution:hover .home-solution__link svg {
+  transform: translateX(4px);
 }
 
-#practices .home-section-kicker {
-  color: #60a5fa;
-}
-
-#practices .home-section-title {
-  color: #ffffff;
-}
-
-#practices .home-section-intro {
-  color: #94a3b8;
-}
-
-#practices .home-practice-card {
-  background: #1e293b;
-  border-color: #334155;
-}
-
-#practices .home-practice-card:hover {
-  border-color: rgba(96, 165, 250, 0.4);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-}
-
-#practices .home-practice-card h3 {
-  color: #f1f5f9;
-}
-
-#practices .home-practice-tag {
-  color: #60a5fa;
-}
-
-#practices .home-practice-card p:last-of-type {
-  color: #94a3b8;
-}
-
-#practices .home-practice-link {
-  color: #60a5fa;
-}
-
-/* ── Animations ── */
-[data-home-animate] {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-
-[data-home-animate].home-fade-in {
-  opacity: 1;
-  transform: none;
+.home-solutions__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 /* ── Responsive ── */
-@media (max-width: 900px) {
-  .home-achievement-grid {
+@media (max-width: 980px) {
+  .home-hero__inner {
     grid-template-columns: 1fr;
-    gap: 12px;
   }
 
-  .home-practice-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .home-hero__visual {
+    max-width: 520px;
+  }
+
+  .home-solutions {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 768px) {
-  .home-hero.section {
-    padding: clamp(48px, 8vw, 72px) 0 clamp(40px, 6vw, 60px);
-    -webkit-mask-image: none;
-    mask-image: none;
+@media (max-width: 560px) {
+  .home-solutions {
+    grid-template-columns: 1fr;
   }
 
-  .home-section {
-    padding: clamp(36px, 5vw, 56px) 0;
+  .app-tile {
+    width: 46px;
+    height: 46px;
   }
 
-  .home-hero-actions {
-    flex-direction: column;
-    align-items: stretch;
+  .app-tile svg {
+    width: 22px;
+    height: 22px;
   }
 
-  .btn-large {
-    width: 100%;
-    text-align: center;
+  .screen-card {
+    padding: 8px 10px;
+    gap: 8px;
   }
 
-  .home-practice-card {
-    padding: 28px 24px 24px;
+  .screen-card__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .screen-card strong {
+    font-size: 11px;
+  }
+
+  .screen-card small {
+    font-size: 9px;
   }
 }
