@@ -94,4 +94,9 @@
     width: 1.6rem;
     height: 1.6rem;
   }
+
+  .whatsapp-float__pulse {
+    animation: none;
+    display: none;
+  }
 }

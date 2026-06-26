@@ -48,11 +48,16 @@
 /* ── Hero visual: laptop dashboard + floating icons ── */
 .home-hero__visual {
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .hero-stage {
   position: relative;
   padding: 34px clamp(26px, 5vw, 56px) 48px;
+  overflow: hidden;
+  contain: layout paint;
 }
 
 /* Laptop frame */
@@ -182,6 +187,7 @@
   border: 1px solid var(--border-strong);
   box-shadow: var(--shadow-card);
   animation: tile-float 5.5s ease-in-out infinite;
+  will-change: transform;
 }
 
 .app-tile::before {
@@ -313,7 +319,8 @@
   }
 
   .home-hero__visual {
-    max-width: 520px;
+    max-width: min(520px, 100%);
+    margin-inline: auto;
   }
 
   .home-solutions {
@@ -321,19 +328,69 @@
   }
 }
 
-@media (max-width: 560px) {
-  .home-solutions {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .hero-stage {
+    padding: 20px 12px 28px;
+  }
+
+  .laptop {
+    max-width: 100%;
+  }
+
+  .laptop__screen {
+    aspect-ratio: auto;
+    min-height: 240px;
+    padding: 10px;
+  }
+
+  .laptop__base {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Stack cards inside screen — no overlap on small screens */
+  .screen-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    min-height: 220px;
+  }
+
+  .screen-card {
+    position: static;
+    width: 100%;
+    animation: none;
+    white-space: normal;
+    transform: none;
   }
 
   .app-tile {
-    width: 46px;
-    height: 46px;
+    animation: none;
+    transform: none;
+    width: 40px;
+    height: 40px;
   }
 
   .app-tile svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Keep tiles inside bounds */
+  .app-tile--1 { top: 2%; left: 2%; }
+  .app-tile--2 { top: 0; right: 2%; }
+  .app-tile--3 { top: 38%; left: 0; }
+  .app-tile--4 { top: 32%; right: 0; }
+  .app-tile--5 { bottom: 8%; left: 2%; }
+  .app-tile--6 { bottom: 2%; right: 2%; }
+  .app-tile--7 { display: none; }
+}
+
+@media (max-width: 560px) {
+  .home-solutions {
+    grid-template-columns: 1fr;
   }
 
   .screen-card {

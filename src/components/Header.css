@@ -19,13 +19,15 @@
   justify-content: space-between;
   gap: 24px;
   height: var(--header-h);
+  min-width: 0;
 }
 
 /* Logo */
 .hdr__logo {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .hdr__logo .brand-wordmark--header {
@@ -205,5 +207,27 @@
 
   .hdr__drawer .btn {
     margin-top: 8px;
+  }
+
+  .hdr__inner {
+    gap: 10px;
+  }
+
+  .hdr__logo .brand-wordmark--header {
+    height: 22px;
+  }
+
+  .hdr__actions {
+    gap: 8px;
+  }
+
+  .hdr__actions .hdr__cta-mobile {
+    padding: 9px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .hdr__burger {
+    flex-shrink: 0;
   }
 }
