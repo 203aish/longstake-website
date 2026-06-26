@@ -40,10 +40,13 @@
   gap: 10px;
   flex: 1 1 320px;
   max-width: 440px;
+  min-width: 0;
+  width: 100%;
 }
 
 .ft-news__input {
   flex: 1;
+  min-width: 0;
   padding: 13px 16px;
   border-radius: 12px;
   border: 1px solid var(--border-strong);
@@ -251,11 +254,32 @@
   .ft-brand {
     grid-column: 1 / -1;
   }
+
+  .ft-news {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .ft-news__form,
+  .ft-news__thanks {
+    flex: 1 1 auto;
+    max-width: none;
+  }
 }
 
 @media (max-width: 520px) {
   .ft-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ft-news__form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ft-news__btn {
+    width: 100%;
   }
 
   .ft-bottom {

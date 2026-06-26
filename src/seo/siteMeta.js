@@ -22,9 +22,9 @@ export const PAGE_META = {
   pricing: {
     title: 'Pricing | Toronto Websites & Managed Google/Meta Ads from $9.99/mo | Longstake',
     description:
-      'Longstake pricing for Toronto: Silver $9.99/mo (website + reviews + social links), Gold $39.99/mo (dynamic site + managed Google & Meta ads + advanced analytics), Platinum $99.99/mo (mobile or web app + full growth support). Free setup on Silver and Gold.',
+      'Longstake pricing for Toronto: Essential from $9.99/mo CAD (website + SEO), Core $19.99/mo (advanced SEO + blog), Plus $29.99/mo (integrations + analytics), Prime $49.99/mo (unlimited pages + dedicated team). USD pricing for US visitors.',
     keywords:
-      'website pricing Toronto, how much does a website cost Toronto, cheap website Toronto, affordable website plans Toronto, managed Google Ads pricing Toronto, managed Meta Ads pricing Toronto, facebook ads management cost Toronto, instagram ads management Toronto, google review management pricing Toronto, monthly website plans Toronto, web design packages Toronto, website and ads bundle Toronto, mobile app development cost Toronto, web app development pricing Toronto, digital marketing packages Toronto, Longstake pricing',
+      'website pricing Toronto, how much does a website cost Toronto, cheap website Toronto, affordable website plans Toronto, Essential Core Plus Prime pricing, managed Google Ads pricing Toronto, managed Meta Ads pricing Toronto, facebook ads management cost Toronto, instagram ads management Toronto, google review management pricing Toronto, monthly website plans Toronto, web design packages Toronto, website and ads bundle Toronto, mobile app development cost Toronto, web app development pricing Toronto, digital marketing packages Toronto, Longstake pricing',
   },
   services: {
     title: 'Services | Web Design, Apps & Managed Ads in Toronto | Longstake',

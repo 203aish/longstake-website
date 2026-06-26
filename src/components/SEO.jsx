@@ -1,5 +1,6 @@
 import React from 'react'
 import { SITE_URL } from '../seo/siteMeta'
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from '../constants/contact'
 
 const ORG_ID = `${SITE_URL}/#organization`
 const WEBSITE_ID = `${SITE_URL}/#website`
@@ -77,7 +78,7 @@ const SEO = () => {
           { '@type': 'Country', name: 'Canada' },
           { '@type': 'Place', name: 'Worldwide' },
         ],
-        sameAs: [],
+        sameAs: [FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL],
       },
       {
         '@type': 'ProfessionalService',
@@ -150,7 +151,7 @@ const SEO = () => {
         offers: {
           '@type': 'Offer',
           description:
-            'Silver from $9.99/mo; Gold and Platinum plans for managed ads, reviews, and apps.',
+            'Essential from $9.99/mo CAD; Core, Plus, and Prime plans for SEO, managed ads, analytics, and dedicated support.',
           url: `${SITE_URL}/pricing`,
         },
       },
