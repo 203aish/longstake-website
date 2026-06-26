@@ -17,8 +17,6 @@ import {
 } from '../components/icons'
 import './HomePage.css'
 
-const TRUSTED = ['Google', 'Microsoft', 'AWS', 'Shopify', 'HubSpot', 'Meta']
-
 const APP_ICONS = [
   { icon: IconTrendUp, color: 'var(--violet)' },
   { icon: IconCode, color: 'var(--teal)' },
@@ -146,18 +144,6 @@ const HomePage = () => {
                 )
               })}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TRUSTED BY */}
-      <section className="home-trusted">
-        <div className="container">
-          <p className="home-trusted__label">Trusted by growing businesses</p>
-          <div className="home-trusted__logos">
-            {TRUSTED.map((name) => (
-              <span className="home-trusted__logo" key={name}>{name}</span>
-            ))}
           </div>
         </div>
       </section>

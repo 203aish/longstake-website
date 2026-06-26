@@ -116,7 +116,7 @@ const ContactPage = () => {
                 <span className="icon-chip" aria-hidden><IconClock /></span>
                 <div>
                   <span className="contact-info__label">Office Hours</span>
-                  <span className="contact-info__value">Mon–Fri, 9:00 AM – 6:00 PM ET</span>
+                  <span className="contact-info__value">Mon–Fri, 24/7</span>
                 </div>
               </li>
             </ul>

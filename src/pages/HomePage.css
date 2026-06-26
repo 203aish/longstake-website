@@ -222,44 +222,6 @@
   .app-tile { animation: none; }
 }
 
-/* ── Trusted by ── */
-.home-trusted {
-  padding: clamp(30px, 4vw, 48px) 0;
-  border-block: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.015);
-}
-
-.home-trusted__label {
-  text-align: center;
-  font: 600 12px/1 'JetBrains Mono', monospace;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-  margin-bottom: 22px;
-}
-
-.home-trusted__logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(28px, 6vw, 64px);
-}
-
-.home-trusted__logo {
-  font-size: clamp(18px, 2.4vw, 26px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--muted-2);
-  opacity: 0.7;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-.home-trusted__logo:hover {
-  opacity: 1;
-  color: var(--text);
-}
-
 /* ── Solutions ── */
 .home-solutions {
   display: grid;
@@ -319,8 +281,7 @@
   }
 
   .home-hero__visual {
-    max-width: min(520px, 100%);
-    margin-inline: auto;
+    display: none;
   }
 
   .home-solutions {
@@ -328,86 +289,8 @@
   }
 }
 
-@media (max-width: 640px) {
-  .hero-stage {
-    padding: 20px 12px 28px;
-  }
-
-  .laptop {
-    max-width: 100%;
-  }
-
-  .laptop__screen {
-    aspect-ratio: auto;
-    min-height: 240px;
-    padding: 10px;
-  }
-
-  .laptop__base {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  /* Stack cards inside screen — no overlap on small screens */
-  .screen-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
-    padding: 8px;
-    min-height: 220px;
-  }
-
-  .screen-card {
-    position: static;
-    width: 100%;
-    animation: none;
-    white-space: normal;
-    transform: none;
-  }
-
-  .app-tile {
-    animation: none;
-    transform: none;
-    width: 40px;
-    height: 40px;
-  }
-
-  .app-tile svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* Keep tiles inside bounds */
-  .app-tile--1 { top: 2%; left: 2%; }
-  .app-tile--2 { top: 0; right: 2%; }
-  .app-tile--3 { top: 38%; left: 0; }
-  .app-tile--4 { top: 32%; right: 0; }
-  .app-tile--5 { bottom: 8%; left: 2%; }
-  .app-tile--6 { bottom: 2%; right: 2%; }
-  .app-tile--7 { display: none; }
-}
-
 @media (max-width: 560px) {
   .home-solutions {
     grid-template-columns: 1fr;
-  }
-
-  .screen-card {
-    padding: 8px 10px;
-    gap: 8px;
-  }
-
-  .screen-card__icon {
-    width: 30px;
-    height: 30px;
-  }
-
-  .screen-card strong {
-    font-size: 11px;
-  }
-
-  .screen-card small {
-    font-size: 9px;
   }
 }
